@@ -1,0 +1,1253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Work — thewoleisaiah | Portfolio</title>
+<meta name="description" content="Brand identity, website design, ministry branding, and social media work. Every project built on strategy, clarity, and intention."/>
+<link rel="stylesheet" href="css/styles.css"/>
+<style>
+
+/* ── WORK PAGE ─────────────────────────────────────── */
+
+/* Hero */
+.work-hero {
+  padding: 9rem var(--gap) 6rem;
+  max-width: var(--max);
+  margin: 0 auto;
+  border-bottom: 1px solid var(--line);
+}
+.work-hero-inner {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 4rem;
+  align-items: end;
+}
+.work-hero-headline {
+  font-family: var(--serif);
+  font-size: var(--fs-display);
+  line-height: 0.97;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+}
+.work-hero-headline em { font-style: italic; color: var(--accent); }
+.work-hero-text {
+  font-size: 1.1rem;
+  color: var(--ink);
+  opacity: 0.62;
+  line-height: 1.75;
+  font-weight: 300;
+  margin-bottom: 2rem;
+}
+
+/* Section nav pills */
+.work-section-nav {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+.section-pill {
+  font-family: var(--syne);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.45rem 1rem;
+  border: 1.5px solid var(--line);
+  border-radius: 50px;
+  color: var(--ink);
+  opacity: 0.6;
+  text-decoration: none;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.section-pill:hover { background: var(--ink); color: #fff; border-color: var(--ink); opacity: 1; }
+
+/* ── CATEGORY SECTION ───────────────────────────────── */
+.cat-section {
+  padding: var(--section) var(--gap);
+  border-bottom: 1px solid var(--line);
+}
+.cat-section:last-of-type { border-bottom: none; }
+.cat-section--warm { background: var(--warm); }
+.cat-section--dark { background: var(--dark-bg); color: var(--dark-text); }
+
+.cat-section-inner { max-width: var(--max); margin: 0 auto; }
+
+.cat-header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: clamp(3rem, 5vw, 4.5rem);
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--line);
+}
+.cat-header--dark { border-bottom-color: var(--dark-line); }
+
+.cat-num {
+  font-family: var(--serif);
+  font-size: clamp(3rem, 6vw, 5rem);
+  color: var(--accent);
+  opacity: 0.15;
+  line-height: 1;
+  font-style: italic;
+}
+.cat-header-mid {}
+.cat-label {
+  font-family: var(--syne);
+  font-size: var(--fs-label);
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.4rem;
+  display: block;
+}
+.cat-label--dark { color: var(--accent-lt); }
+.cat-title {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 3.5vw, 3rem);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--ink);
+}
+.cat-title--dark { color: var(--dark-text); }
+.cat-title em { font-style: italic; color: var(--accent); }
+.cat-count {
+  font-family: var(--syne);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.cat-count--dark { color: var(--dark-faint); }
+
+/* ── PROJECT GRID ───────────────────────────────────── */
+.proj-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2px;
+  background: var(--line);
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.proj-grid--2col { grid-template-columns: 1fr 1fr; }
+.proj-grid--dark { background: var(--dark-line); border-color: var(--dark-line); }
+.proj-grid--1col { grid-template-columns: 1fr; }
+
+.proj-card {
+  background: var(--paper);
+  position: relative;
+  overflow: hidden;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+.proj-card--dark-bg { background: #111210; }
+.proj-card--wide { grid-column: span 2; }
+.proj-card:hover .proj-overlay { opacity: 1; }
+.proj-card:hover .proj-img-inner { transform: scale(1.04); }
+
+.proj-img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  background: var(--dark-bg);
+  position: relative;
+}
+.proj-card--wide .proj-img { aspect-ratio: 16/9; }
+.proj-img-inner {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  transition: transform 0.55s ease;
+  position: relative;
+}
+.proj-mono {
+  font-family: var(--serif);
+  font-size: clamp(2.5rem, 7vw, 6rem);
+  color: rgba(240,236,227,0.07);
+  font-style: italic;
+  position: absolute;
+  pointer-events: none;
+}
+.proj-badge {
+  position: absolute;
+  top: 1rem; right: 1rem;
+  font-family: var(--syne);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.25rem 0.65rem;
+  border-radius: 1px;
+  z-index: 1;
+}
+.proj-overlay {
+  position: absolute; inset: 0;
+  background: rgba(14,13,11,0.72);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: 2;
+}
+.proj-overlay-btn {
+  font-family: var(--syne);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: 1.5px solid rgba(240,236,227,0.8);
+  color: #fff;
+  padding: 0.65rem 1.4rem;
+  border-radius: 1px;
+  transition: background 0.2s, border-color 0.2s;
+}
+.proj-overlay-btn:hover { background: var(--accent); border-color: var(--accent); }
+
+.proj-info {
+  padding: 1.4rem 1.6rem 1.9rem;
+  background: var(--paper);
+}
+.proj-info--dark { background: #111210; }
+.proj-cat {
+  font-family: var(--syne);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.35rem;
+}
+.proj-cat--dark { color: var(--accent-lt); }
+.proj-title {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+.proj-title--dark { color: var(--dark-text); }
+.proj-desc {
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.65;
+  font-weight: 300;
+}
+.proj-desc--dark { color: var(--dark-sub); }
+
+/* ── COMING SOON CARD ───────────────────────────────── */
+.coming-soon-card {
+  background: var(--warm);
+  border: 1.5px dashed var(--line);
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem;
+  text-align: center;
+  gap: 0.8rem;
+  margin-top: 2px;
+}
+.coming-soon-card--dark {
+  background: rgba(255,255,255,0.03);
+  border-color: var(--dark-line);
+}
+.coming-soon-label {
+  font-family: var(--syne);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.coming-soon-label--dark { color: var(--dark-faint); }
+.coming-soon-text {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--ink);
+  opacity: 0.4;
+}
+.coming-soon-text--dark { color: var(--dark-text); opacity: 0.25; }
+
+/* ── CASE STUDY ─────────────────────────────────────── */
+.case-section {
+  background: var(--dark-bg);
+  padding: var(--section) var(--gap);
+}
+.case-inner { max-width: var(--max); margin: 0 auto; }
+.case-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(3rem,6vw,6rem);
+  align-items: center;
+  margin-top: 4rem;
+}
+.case-body { font-size: 0.95rem; color: var(--dark-sub); line-height: 1.8; font-weight: 300; margin-bottom: 1.2rem; }
+.case-img {
+  background: var(--warm-dark);
+  aspect-ratio: 4/3;
+  border-radius: var(--radius);
+  display: flex; align-items: center; justify-content: center;
+}
+.case-img-inner {
+  font-family: var(--serif);
+  font-size: 4rem;
+  color: rgba(14,13,11,0.18);
+  font-style: italic;
+}
+
+/* ── CTA ────────────────────────────────────────────── */
+.work-cta { padding: var(--section) var(--gap); background: var(--warm); text-align: center; }
+.work-cta-inner { max-width: 580px; margin: 0 auto; }
+
+/* ── CAROUSEL ───────────────────────────────────────── */
+.carousel-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+.carousel-btn {
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  border: 1.5px solid var(--line);
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  line-height: 1;
+}
+.carousel-btn:hover { background: var(--accent); border-color: var(--accent); color: #fff; transform: scale(1.05); }
+.carousel-btn--dark { border-color: var(--dark-line); background: rgba(255,255,255,0.05); color: var(--dark-text); }
+.carousel-btn--dark:hover { background: var(--accent); border-color: var(--accent); }
+.carousel-count {
+  font-family: var(--syne);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  min-width: 3rem;
+  text-align: center;
+}
+.carousel-count--dark { color: var(--dark-faint); }
+
+.carousel-wrap {
+  overflow: hidden;
+  position: relative;
+  margin: 0 calc(-1 * var(--gap));
+  padding: 0 var(--gap);
+}
+.carousel-wrap::after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0; bottom: 0;
+  width: 80px;
+  background: linear-gradient(to left, var(--paper), transparent);
+  pointer-events: none;
+  z-index: 2;
+}
+.carousel-wrap--dark::after {
+  background: linear-gradient(to left, var(--dark-bg), transparent);
+}
+
+.carousel-track {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-bottom: 1rem;
+  cursor: grab;
+  user-select: none;
+}
+.carousel-track::-webkit-scrollbar { display: none; }
+.carousel-track.dragging { cursor: grabbing; }
+.carousel-track.dragging * { pointer-events: none; }
+
+.carousel-card {
+  flex: 0 0 320px;
+  scroll-snap-align: start;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1.5px solid var(--line);
+  background: var(--paper);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.carousel-card:hover { transform: translateY(-4px); box-shadow: 0 14px 36px rgba(14,13,11,0.09); }
+.carousel-card--dark { border-color: var(--dark-line); background: #111210; }
+.carousel-card--dark:hover { box-shadow: 0 14px 36px rgba(0,0,0,0.35); }
+
+.carousel-img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  overflow: hidden;
+  position: relative;
+  background: var(--dark-bg);
+}
+
+/* Placeholder shown when image fails to load */
+.carousel-placeholder {
+  width: 100%; height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  background: linear-gradient(135deg, #0e0d10 0%, #181620 100%);
+  position: absolute;
+  inset: 0;
+}
+.carousel-placeholder--dark { background: linear-gradient(135deg, #0a0908 0%, #14120f 100%); }
+.carousel-ph-icon { font-size: 2rem; opacity: 0.25; }
+.carousel-ph-file {
+  font-family: var(--syne);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  opacity: 0.75;
+}
+.carousel-ph-hint {
+  font-size: 0.72rem;
+  color: rgba(240,236,227,0.3);
+  font-weight: 300;
+  text-align: center;
+  padding: 0 1rem;
+  line-height: 1.5;
+}
+
+.carousel-badge {
+  position: absolute;
+  top: 0.8rem; right: 0.8rem;
+  font-family: var(--syne);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.22rem 0.6rem;
+  border-radius: 1px;
+  z-index: 3;
+}
+
+.carousel-info { padding: 1.1rem 1.3rem 1.4rem; }
+.carousel-title {
+  font-family: var(--syne);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--ink);
+  margin-bottom: 0.3rem;
+}
+.carousel-title--dark { color: var(--dark-text); }
+.carousel-desc { font-size: 0.78rem; color: var(--muted); line-height: 1.6; font-weight: 300; }
+.carousel-desc--dark { color: var(--dark-sub); }
+
+.carousel-hint-text {
+  font-family: var(--syne);
+  font-size: 0.64rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  opacity: 0.55;
+  margin-top: 1.2rem;
+  text-align: center;
+}
+.carousel-hint-text--dark { color: var(--dark-faint); opacity: 0.6; }
+.carousel-hint-text code { font-family: monospace; font-size: 0.75rem; background: var(--warm); padding: 0.1rem 0.4rem; border-radius: 2px; text-transform: none; letter-spacing: 0; }
+
+/* ── RESPONSIVE ─────────────────────────────────────── */
+@media (max-width: 960px) {
+  .work-hero-inner { grid-template-columns: 1fr; padding-top: 0; }
+  .cat-header { grid-template-columns: auto 1fr auto; gap: 1rem; flex-wrap: wrap; }
+  .cat-count { display: none; }
+  .proj-grid { grid-template-columns: 1fr; }
+  .proj-grid--2col { grid-template-columns: 1fr; }
+  .proj-card--wide { grid-column: 1; }
+  .proj-card--wide .proj-img { aspect-ratio: 4/3; }
+  .case-grid { grid-template-columns: 1fr; }
+  .carousel-card { flex: 0 0 260px; }
+}
+@media (max-width: 600px) {
+  .work-section-nav { gap: 0.4rem; }
+  .carousel-card { flex: 0 0 220px; }
+  .cat-header { grid-template-columns: auto 1fr; }
+  .carousel-nav { grid-column: 1 / -1; }
+}
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="index.html" class="nav-logo"><img src="assets/logo.png" alt="thewoleisaiah"/></a>
+  <ul class="nav-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="work.html" class="active">Work</a></li>
+    <li><a href="framework.html">Framework</a></li>
+    <li><a href="blog.html">Blog</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="contact.html" class="nav-cta">Work With Me</a>
+    <div class="nav-hamburger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+<div class="mobile-nav">
+  <span class="mobile-nav-close">Close ✕</span>
+  <a href="about.html">About</a><a href="services.html">Services</a><a href="work.html">Work</a><a href="framework.html">Framework</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a>
+</div>
+
+<!-- HERO -->
+<div class="work-hero">
+  <div class="work-hero-inner">
+    <div>
+      <span class="label reveal" style="margin-bottom:1.4rem;display:block;">Selected Work</span>
+      <h1 class="work-hero-headline reveal reveal-delay-1">Work that<br><em>speaks</em><br>for itself.</h1>
+    </div>
+    <div class="reveal reveal-delay-2">
+      <p class="work-hero-text">Every project here started with strategy, not aesthetics. Scroll through by discipline — or jump straight to what you need.</p>
+      <div class="work-section-nav">
+        <a href="#brand-identity" class="section-pill">Brand Identity</a>
+        <a href="#website-design" class="section-pill">Website Design</a>
+        <a href="#ministry" class="section-pill">Ministry Branding</a>
+        <a href="#social-media" class="section-pill">Social Media</a>
+        <a href="#church-events" class="section-pill">Church Events</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="marquee-wrap" aria-hidden="true">
+  <div class="marquee-track">
+    <span class="marquee-item">Brand Identity</span><span class="marquee-item">Website Design</span><span class="marquee-item">Ministry Branding</span><span class="marquee-item">Social Media</span><span class="marquee-item">Church Events</span><span class="marquee-item">Strategy First</span><span class="marquee-item">C.L.A.R.I.T.Y Framework</span>
+    <span class="marquee-item">Brand Identity</span><span class="marquee-item">Website Design</span><span class="marquee-item">Ministry Branding</span><span class="marquee-item">Social Media</span><span class="marquee-item">Church Events</span><span class="marquee-item">Strategy First</span><span class="marquee-item">C.L.A.R.I.T.Y Framework</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     SECTION 01 — BRAND IDENTITY & LOGO DESIGN
+═══════════════════════════════════════════════════ -->
+<section class="cat-section" id="brand-identity">
+  <div class="cat-section-inner">
+    <div class="cat-header reveal">
+      <div class="cat-num">01</div>
+      <div class="cat-header-mid">
+        <span class="cat-label">Brand Identity &amp; Logo Design</span>
+        <h2 class="cat-title">Making brands <em>unmistakable.</em></h2>
+      </div>
+      <span class="cat-count">6 Projects</span>
+    </div>
+
+    <div class="proj-grid">
+
+      <!-- Versedom — wide -->
+      <a href="https://www.behance.net/gallery/215246209/Versedom-Brand-Identity-Guidelines" target="_blank" rel="noopener" class="proj-card proj-card--wide reveal">
+        <div class="proj-img">
+          <div class="proj-img-inner" style="background:linear-gradient(135deg,#07080a 0%,#0f1520 60%,#07080a 100%);">
+            <span class="proj-mono" style="font-size:clamp(3rem,9vw,8rem);">Versedom</span>
+            <span class="proj-badge">Brand Identity</span>
+          </div>
+          <div class="proj-overlay"><span class="proj-overlay-btn">View on Behance</span></div>
+        </div>
+        <div class="proj-info">
+          <div class="proj-cat">Brand Identity Design</div>
+          <div class="proj-title">Versedom — Complete Brand Identity</div>
+          <p class="proj-desc">A full brand system for a faith-rooted creative brand — logo design, visual language, colour system, and brand guidelines built to communicate purpose and credibility from the first impression.</p>
+        </div>
+      </a>
+
+      <!-- Sege Unique Properties -->
+      <a href="https://www.behance.net/gallery/215246839/Sege-Unique-Properties-Unique-Logos" target="_blank" rel="noopener" class="proj-card reveal">
+        <div class="proj-img">
+          <div class="proj-img-inner" style="background:linear-gradient(135deg,#0a0a08 0%,#1a1a0f 60%,#0a0a08 100%);">
+            <span class="proj-mono">Sege</span>
+            <span class="proj-badge">Brand Identity</span>
+          </div>
+          <div class="proj-overlay"><span class="proj-overlay-btn">View on Behance</span></div>
+        </div>
+        <div class="proj-info">
+          <div class="proj-cat">Brand Identity Design</div>
+          <div class="proj-title">Sege Unique Properties Limited</div>
+          <p class="proj-desc">Logo and brand identity for a real estate company. Positioned as credible, professional, and trustworthy in a competitive market.</p>
+        </div>
+      </a>
+
+      <!-- Zipup Network -->
+      <a href="https://www.behance.net/thewoleisaiah" target="_blank" rel="noopener" class="proj-card reveal reveal-delay-1">
+        <div class="proj-img">
+          <div class="proj-img-inner" style="background:linear-gradient(135deg,#030d0a 0%,#081a12 60%,#030d0a 100%);">
+            <span class="proj-mono">Zipup</span>
+            <span class="proj-badge">Logo Design</span>
+          </div>
+          <div class="proj-overlay"><span class="proj-overlay-btn">View on Behance</span></div>
+        </div>
+        <div class="proj-info">
+          <div class="proj-cat">Logo Design</div>
+          <div class="proj-title">Zipup Network — Logo Design</div>
+          <p class="proj-desc">A mark communicating connectivity, momentum, and reliability — built to work across digital and physical applications.</p>
+        </div>
+      </a>
+
+      <!-- Your Child Health -->
+      <a href="https://www.behance.net/thewoleisaiah" target="_blank" rel="noopener" class="proj-card reveal">
+        <div class="proj-img">
+          <div class="proj-img-inner" style="background:linear-gradient(135deg,#080314 0%,#130520 60%,#080314 100%);">
+            <span class="proj-mono">YCH</span>
+            <span class="proj-badge">Logo Design</span>
+          </div>
+          <div class="proj-overlay"><span class="proj-overlay-btn">View on Behance</span></div>
+        </div>
+        <div class="proj-info">
+          <div class="proj-cat">Logo Design</div>
+          <div class="proj-title">Your Child Health — Logo Design</div>
+          <p class="proj-desc">Logo for a health brand serving families. Communicates care, trust, and approachability — the right emotional tone for health decisions.</p>
+        </div>
+      </a>
+
+      <!-- Wiigital Studios -->
+      <a href="https://www.behance.net/thewoleisaiah" target="_blank" rel="noopener" class="proj-card reveal reveal-delay-1">
+        <div class="proj-img">
+          <div class="proj-img-inner" style="background:linear-gradient(135deg,#030a14 0%,#06142a 60%,#030a14 100%);">
+            <span class="proj-mono">Wii</span>
+            <span class="proj-badge">Brand Identity</span>
+          </div>
+          <div class="proj-overlay"><span class="proj-overlay-btn">View on Behance</span></div>
+        </div>
+        <div class="proj-info">
+          <div class="proj-cat">Brand Identity Design</div>
+          <div class="proj-title">Wiigital Studios — Brand Identity</div>
+          <p class="proj-desc">A bold, modern visual system for a digital creative studio — built to reflect their range and position them confidently in the digital space.</p>
+        </div>
+      </a>
+
+      <!-- thewoleisaiah Personal Brand — wide -->
+      <a href="https://www.behance.net/thewoleisaiah" target="_blank" rel="noopener" class="proj-card proj-card--wide reveal">
+        <div class="proj-img">
+          <div class="proj-img-inner" style="background:linear-gradient(135deg,#020408 0%,#040c1a 50%,rgba(0,119,255,0.08) 100%);">
+            <span class="proj-mono" style="font-size:clamp(3rem,10vw,9rem);color:rgba(0,119,255,0.12);">twi.</span>
+            <span class="proj-badge">Personal Brand</span>
+          </div>
+          <div class="proj-overlay"><span class="proj-overlay-btn">View on Behance</span></div>
+        </div>
+        <div class="proj-info">
+          <div class="proj-cat">Personal Brand Identity</div>
+          <div class="proj-title">thewoleisaiah — Personal Brand &amp; Identity System</div>
+          <p class="proj-desc">The brand you're looking at right now. A complete personal brand system — logo mark, verbal identity, visual language, and a design philosophy rooted in Faith, Design, Media and Tech. Every element intentional. Every decision strategic.</p>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     SECTION 02 — WEBSITE DESIGN
+═══════════════════════════════════════════════════ -->
+<section class="cat-section cat-section--dark" id="website-design">
+  <div class="cat-section-inner">
+    <div class="cat-header cat-header--dark reveal">
+      <div class="cat-num" style="color:var(--accent-lt);">02</div>
+      <div class="cat-header-mid">
+        <span class="cat-label cat-label--dark">Website Design &amp; Development</span>
+        <h2 class="cat-title cat-title--dark">Websites that <em>work.</em></h2>
+      </div>
+      <span class="cat-count cat-count--dark">2 Projects</span>
+    </div>
+
+    <div class="proj-grid proj-grid--2col proj-grid--dark">
+
+      <!-- Hug and Fly Travels -->
+      <a href="https://hugandflytravel.com/" target="_blank" rel="noopener" class="proj-card proj-card--dark-bg reveal">
+        <div class="proj-img">
+          <div class="proj-img-inner" style="background:linear-gradient(135deg,#050d1a 0%,#0a1f35 60%,#050d1a 100%);">
+            <span class="proj-mono">Hug &amp; Fly</span>
+            <span class="proj-badge">Website</span>
+          </div>
+          <div class="proj-overlay"><span class="proj-overlay-btn">Visit Live Site</span></div>
+        </div>
+        <div class="proj-info proj-info--dark">
+          <div class="proj-cat proj-cat--dark">Website Design</div>
+          <div class="proj-title proj-title--dark">Hug and Fly Travels</div>
+          <p class="proj-desc proj-desc--dark">A travel agency website built to convert visitors into bookings. Clean, trust-building layout with a clear service structure and strong calls-to-action from entry to exit.</p>
+        </div>
+      </a>
+
+      <!-- Atim Ekanem Foundation -->
+      <a href="https://atimefoundation.org/" target="_blank" rel="noopener" class="proj-card proj-card--dark-bg reveal reveal-delay-1">
+        <div class="proj-img">
+          <div class="proj-img-inner" style="background:linear-gradient(135deg,#0a0514 0%,#18082a 60%,#0a0514 100%);">
+            <span class="proj-mono">Atim</span>
+            <span class="proj-badge">Website Redesign</span>
+          </div>
+          <div class="proj-overlay"><span class="proj-overlay-btn">Visit Live Site</span></div>
+        </div>
+        <div class="proj-info proj-info--dark">
+          <div class="proj-cat proj-cat--dark">Website Redesign</div>
+          <div class="proj-title proj-title--dark">Atim Ekanem Foundation</div>
+          <p class="proj-desc proj-desc--dark">A full redesign for a nonprofit foundation. Rebuilt to communicate impact clearly — earning donor trust, serving beneficiaries, and presenting the organisation with the seriousness it deserves.</p>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- Website Case Study Callout -->
+    <div style="margin-top:4rem;padding:3rem;background:rgba(255,255,255,0.03);border:1px solid var(--dark-line);border-radius:var(--radius);" class="reveal">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;">
+        <div>
+          <span class="cat-label cat-label--dark" style="margin-bottom:1rem;">Featured Project</span>
+          <h3 style="font-family:var(--serif);font-size:clamp(1.5rem,2.5vw,2.2rem);color:var(--dark-text);line-height:1.15;letter-spacing:-0.02em;margin-bottom:1.2rem;">Atim Ekanem Foundation — <em style="color:var(--accent-lt);">Website Redesign</em></h3>
+          <p class="case-body">The foundation had a mission worth getting behind — but their digital presence wasn't doing it justice. The old site was difficult to navigate, visually inconsistent, and failed to communicate the depth of the work being done on the ground.</p>
+          <p class="case-body">The redesign started with a single question: who needs to land here, and what do they need to feel and do? Donors needed to trust. Beneficiaries needed to find help quickly. Partners needed to understand the scope. The new site answered all three — clearly, consistently, without noise.</p>
+          <div style="margin-top:2rem;">
+            <a href="https://atimefoundation.org/" target="_blank" rel="noopener" class="btn btn--outline-lt">Visit Live Site <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+        </div>
+        <div class="case-img"><div class="case-img-inner">AEF</div></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     SECTION 03 — MINISTRY BRANDING
+═══════════════════════════════════════════════════ -->
+<section class="cat-section cat-section--warm" id="ministry">
+  <div class="cat-section-inner">
+    <div class="cat-header reveal">
+      <div class="cat-num">03</div>
+      <div class="cat-header-mid">
+        <span class="cat-label">Ministry &amp; Faith-Based Branding</span>
+        <h2 class="cat-title">Design that <em>carries</em> the message.</h2>
+      </div>
+      <span class="cat-count">1 Project</span>
+    </div>
+
+    <div class="proj-grid proj-grid--2col">
+
+      <!-- Living Worshipper -->
+      <a href="https://www.behance.net/gallery/215246715/Living-Worshippers-Logo" target="_blank" rel="noopener" class="proj-card reveal">
+        <div class="proj-img">
+          <div class="proj-img-inner" style="background:linear-gradient(135deg,#08060f 0%,#13101f 60%,#08060f 100%);">
+            <span class="proj-mono">LW</span>
+            <span class="proj-badge">Ministry</span>
+          </div>
+          <div class="proj-overlay"><span class="proj-overlay-btn">View on Behance</span></div>
+        </div>
+        <div class="proj-info">
+          <div class="proj-cat">Ministry Branding</div>
+          <div class="proj-title">Living Worshipper — Logo &amp; Identity</div>
+          <p class="proj-desc">Logo and identity mark for a worship-centered ministry. Spiritual depth expressed through thoughtful, intentional visual design — a mark that carries the weight of the message.</p>
+        </div>
+      </a>
+
+      <!-- Coming Soon -->
+      <div class="coming-soon-card reveal reveal-delay-1">
+        <span style="font-size:2rem;opacity:0.25;">⛪</span>
+        <div class="coming-soon-label">More Projects</div>
+        <div class="coming-soon-text">Ministry work in progress — more coming soon.</div>
+        <a href="contact.html" class="btn btn--outline" style="margin-top:1.2rem;font-size:0.72rem;padding:0.7rem 1.4rem;">Inquire About Ministry Branding</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     SECTION 04 — SOCIAL MEDIA DESIGNS
+═══════════════════════════════════════════════════ -->
+<section class="cat-section" id="social-media">
+  <div class="cat-section-inner">
+    <div class="cat-header reveal">
+      <div class="cat-num">04</div>
+      <div class="cat-header-mid">
+        <span class="cat-label">Social Media Designs</span>
+        <h2 class="cat-title">Content that <em>shows up</em> consistently.</h2>
+      </div>
+      <div class="carousel-nav" id="smNav">
+        <button class="carousel-btn" onclick="scrollCarousel('sm-track', -1)" aria-label="Previous">←</button>
+        <span class="carousel-count" id="smCount">1 / 8</span>
+        <button class="carousel-btn" onclick="scrollCarousel('sm-track', 1)" aria-label="Next">→</button>
+      </div>
+    </div>
+
+    <div class="carousel-wrap reveal">
+      <div class="carousel-track" id="sm-track">
+
+        <!-- CARD 1 — replace src with: assets/social/social-01.jpg -->
+        <div class="carousel-card">
+          <div class="carousel-img">
+            <img src="assets/social/social-01.jpg"
+                 alt="Social Media Design 01"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                 style="width:100%;height:100%;object-fit:cover;display:block;" />
+            <div class="carousel-placeholder" style="display:none;">
+              <span class="carousel-ph-icon">📸</span>
+              <span class="carousel-ph-file">social-01.jpg</span>
+              <span class="carousel-ph-hint">Drop your image in assets/social/</span>
+            </div>
+            <span class="carousel-badge">Social Media</span>
+          </div>
+          <div class="carousel-info">
+            <div class="carousel-title">Social Media Design — 01</div>
+            <p class="carousel-desc">Add title and description when uploading your image.</p>
+          </div>
+        </div>
+
+        <!-- CARD 2 — replace src with: assets/social/social-02.jpg -->
+        <div class="carousel-card">
+          <div class="carousel-img">
+            <img src="assets/social/social-02.jpg"
+                 alt="Social Media Design 02"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                 style="width:100%;height:100%;object-fit:cover;display:block;" />
+            <div class="carousel-placeholder" style="display:none;">
+              <span class="carousel-ph-icon">📸</span>
+              <span class="carousel-ph-file">social-02.jpg</span>
+              <span class="carousel-ph-hint">Drop your image in assets/social/</span>
+            </div>
+            <span class="carousel-badge">Social Media</span>
+          </div>
+          <div class="carousel-info">
+            <div class="carousel-title">Social Media Design — 02</div>
+            <p class="carousel-desc">Add title and description when uploading your image.</p>
+          </div>
+        </div>
+
+        <!-- CARD 3 — replace src with: assets/social/social-03.jpg -->
+        <div class="carousel-card">
+          <div class="carousel-img">
+            <img src="assets/social/social-03.jpg"
+                 alt="Social Media Design 03"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                 style="width:100%;height:100%;object-fit:cover;display:block;" />
+            <div class="carousel-placeholder" style="display:none;">
+              <span class="carousel-ph-icon">📸</span>
+              <span class="carousel-ph-file">social-03.jpg</span>
+              <span class="carousel-ph-hint">Drop your image in assets/social/</span>
+            </div>
+            <span class="carousel-badge">Social Media</span>
+          </div>
+          <div class="carousel-info">
+            <div class="carousel-title">Social Media Design — 03</div>
+            <p class="carousel-desc">Add title and description when uploading your image.</p>
+          </div>
+        </div>
+
+        <!-- CARD 4 — replace src with: assets/social/social-04.jpg -->
+        <div class="carousel-card">
+          <div class="carousel-img">
+            <img src="assets/social/social-04.jpg"
+                 alt="Social Media Design 04"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                 style="width:100%;height:100%;object-fit:cover;display:block;" />
+            <div class="carousel-placeholder" style="display:none;">
+              <span class="carousel-ph-icon">📸</span>
+              <span class="carousel-ph-file">social-04.jpg</span>
+              <span class="carousel-ph-hint">Drop your image in assets/social/</span>
+            </div>
+            <span class="carousel-badge">Social Media</span>
+          </div>
+          <div class="carousel-info">
+            <div class="carousel-title">Social Media Design — 04</div>
+            <p class="carousel-desc">Add title and description when uploading your image.</p>
+          </div>
+        </div>
+
+        <!-- CARD 5 — replace src with: assets/social/social-05.jpg -->
+        <div class="carousel-card">
+          <div class="carousel-img">
+            <img src="assets/social/social-05.jpg"
+                 alt="Social Media Design 05"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                 style="width:100%;height:100%;object-fit:cover;display:block;" />
+            <div class="carousel-placeholder" style="display:none;">
+              <span class="carousel-ph-icon">📸</span>
+              <span class="carousel-ph-file">social-05.jpg</span>
+              <span class="carousel-ph-hint">Drop your image in assets/social/</span>
+            </div>
+            <span class="carousel-badge">Social Media</span>
+          </div>
+          <div class="carousel-info">
+            <div class="carousel-title">Social Media Design — 05</div>
+            <p class="carousel-desc">Add title and description when uploading your image.</p>
+          </div>
+        </div>
+
+        <!-- CARD 6 — replace src with: assets/social/social-06.jpg -->
+        <div class="carousel-card">
+          <div class="carousel-img">
+            <img src="assets/social/social-06.jpg"
+                 alt="Social Media Design 06"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                 style="width:100%;height:100%;object-fit:cover;display:block;" />
+            <div class="carousel-placeholder" style="display:none;">
+              <span class="carousel-ph-icon">📸</span>
+              <span class="carousel-ph-file">social-06.jpg</span>
+              <span class="carousel-ph-hint">Drop your image in assets/social/</span>
+            </div>
+            <span class="carousel-badge">Social Media</span>
+          </div>
+          <div class="carousel-info">
+            <div class="carousel-title">Social Media Design — 06</div>
+            <p class="carousel-desc">Add title and description when uploading your image.</p>
+          </div>
+        </div>
+
+        <!-- CARD 7 — replace src with: assets/social/social-07.jpg -->
+        <div class="carousel-card">
+          <div class="carousel-img">
+            <img src="assets/social/social-07.jpg"
+                 alt="Social Media Design 07"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                 style="width:100%;height:100%;object-fit:cover;display:block;" />
+            <div class="carousel-placeholder" style="display:none;">
+              <span class="carousel-ph-icon">📸</span>
+              <span class="carousel-ph-file">social-07.jpg</span>
+              <span class="carousel-ph-hint">Drop your image in assets/social/</span>
+            </div>
+            <span class="carousel-badge">Social Media</span>
+          </div>
+          <div class="carousel-info">
+            <div class="carousel-title">Social Media Design — 07</div>
+            <p class="carousel-desc">Add title and description when uploading your image.</p>
+          </div>
+        </div>
+
+        <!-- CARD 8 — replace src with: assets/social/social-08.jpg -->
+        <div class="carousel-card">
+          <div class="carousel-img">
+            <img src="assets/social/social-08.jpg"
+                 alt="Social Media Design 08"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                 style="width:100%;height:100%;object-fit:cover;display:block;" />
+            <div class="carousel-placeholder" style="display:none;">
+              <span class="carousel-ph-icon">📸</span>
+              <span class="carousel-ph-file">social-08.jpg</span>
+              <span class="carousel-ph-hint">Drop your image in assets/social/</span>
+            </div>
+            <span class="carousel-badge">Social Media</span>
+          </div>
+          <div class="carousel-info">
+            <div class="carousel-title">Social Media Design — 08</div>
+            <p class="carousel-desc">Add title and description when uploading your image.</p>
+          </div>
+        </div>
+
+      </div><!-- end track -->
+    </div><!-- end wrap -->
+    <p class="carousel-hint-text">Drag to scroll · Use arrows · Images load from <code>assets/social/</code></p>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     SECTION 05 — CHURCH EVENT DESIGNS
+═══════════════════════════════════════════════════ -->
+<section class="cat-section cat-section--dark" id="church-events">
+  <div class="cat-section-inner">
+    <div class="cat-header cat-header--dark reveal">
+      <div class="cat-num" style="color:var(--accent-lt);">05</div>
+      <div class="cat-header-mid">
+        <span class="cat-label cat-label--dark">Church Event Designs</span>
+        <h2 class="cat-title cat-title--dark">Excellence in <em>every gathering.</em></h2>
+      </div>
+      <div class="carousel-nav carousel-nav--dark" id="ceNav">
+        <button class="carousel-btn carousel-btn--dark" onclick="scrollCarousel('ce-track', -1)" aria-label="Previous">←</button>
+        <span class="carousel-count carousel-count--dark" id="ceCount">1 / 8</span>
+        <button class="carousel-btn carousel-btn--dark" onclick="scrollCarousel('ce-track', 1)" aria-label="Next">→</button>
+      </div>
+    </div>
+
+    <div class="carousel-wrap carousel-wrap--dark reveal">
+      <div class="carousel-track" id="ce-track">
+
+        <!-- CARD 1 — replace src with: assets/church/church-01.jpg -->
+        <div class="carousel-card carousel-card--dark">
+          <div class="carousel-img">
+            <img src="assets/church/church-01.jpg"
+                 alt="Church Event Design 01"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                 style="width:100%;height:100%;object-fit:cover;display:block;" />
+            <div class="carousel-placeholder carousel-placeholder--dark" style="display:none;">
+              <span class="carousel-ph-icon">📸</span>
+              <span class="carousel-ph-file">church-01.jpg</span>
+              <span class="carousel-ph-hint">Drop your image in assets/church/</span>
+            </div>
+            <span class="carousel-badge">Church Event</span>
+          </div>
+          <div class="carousel-info carousel-info--dark">
+            <div class="carousel-title carousel-title--dark">Church Event Design — 01</div>
+            <p class="carousel-desc carousel-desc--dark">Add title and description when uploading your image.</p>
+          </div>
+        </div>
+
+        <!-- CARD 2 — replace src with: assets/church/church-02.jpg -->
+        <div class="carousel-card carousel-card--dark">
+          <div class="carousel-img">
+            <img src="assets/church/church-02.jpg"
+                 alt="Church Event Design 02"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                 style="width:100%;height:100%;object-fit:cover;display:block;" />
+            <div class="carousel-placeholder carousel-placeholder--dark" style="display:none;">
+              <span class="carousel-ph-icon">📸</span>
+              <span class="carousel-ph-file">church-02.jpg</span>
+              <span class="carousel-ph-hint">Drop your image in assets/church/</span>
+            </div>
+            <span class="carousel-badge">Church Event</span>
+          </div>
+          <div class="carousel-info carousel-info--dark">
+            <div class="carousel-title carousel-title--dark">Church Event Design — 02</div>
+            <p class="carousel-desc carousel-desc--dark">Add title and description when uploading your image.</p>
+          </div>
+        </div>
+
+        <!-- CARD 3 — replace src with: assets/church/church-03.jpg -->
+        <div class="carousel-card carousel-card--dark">
+          <div class="carousel-img">
+            <img src="assets/church/church-03.jpg"
+                 alt="Church Event Design 03"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                 style="width:100%;height:100%;object-fit:cover;display:block;" />
+            <div class="carousel-placeholder carousel-placeholder--dark" style="display:none;">
+              <span class="carousel-ph-icon">📸</span>
+              <span class="carousel-ph-file">church-03.jpg</span>
+              <span class="carousel-ph-hint">Drop your image in assets/church/</span>
+            </div>
+            <span class="carousel-badge">Church Event</span>
+          </div>
+          <div class="carousel-info carousel-info--dark">
+            <div class="carousel-title carousel-title--dark">Church Event Design — 03</div>
+            <p class="carousel-desc carousel-desc--dark">Add title and description when uploading your image.</p>
+          </div>
+        </div>
+
+        <!-- CARD 4 — replace src with: assets/church/church-04.jpg -->
+        <div class="carousel-card carousel-card--dark">
+          <div class="carousel-img">
+            <img src="assets/church/church-04.jpg"
+                 alt="Church Event Design 04"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                 style="width:100%;height:100%;object-fit:cover;display:block;" />
+            <div class="carousel-placeholder carousel-placeholder--dark" style="display:none;">
+              <span class="carousel-ph-icon">📸</span>
+              <span class="carousel-ph-file">church-04.jpg</span>
+              <span class="carousel-ph-hint">Drop your image in assets/church/</span>
+            </div>
+            <span class="carousel-badge">Church Event</span>
+          </div>
+          <div class="carousel-info carousel-info--dark">
+            <div class="carousel-title carousel-title--dark">Church Event Design — 04</div>
+            <p class="carousel-desc carousel-desc--dark">Add title and description when uploading your image.</p>
+          </div>
+        </div>
+
+        <!-- CARD 5 — replace src with: assets/church/church-05.jpg -->
+        <div class="carousel-card carousel-card--dark">
+          <div class="carousel-img">
+            <img src="assets/church/church-05.jpg"
+                 alt="Church Event Design 05"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                 style="width:100%;height:100%;object-fit:cover;display:block;" />
+            <div class="carousel-placeholder carousel-placeholder--dark" style="display:none;">
+              <span class="carousel-ph-icon">📸</span>
+              <span class="carousel-ph-file">church-05.jpg</span>
+              <span class="carousel-ph-hint">Drop your image in assets/church/</span>
+            </div>
+            <span class="carousel-badge">Church Event</span>
+          </div>
+          <div class="carousel-info carousel-info--dark">
+            <div class="carousel-title carousel-title--dark">Church Event Design — 05</div>
+            <p class="carousel-desc carousel-desc--dark">Add title and description when uploading your image.</p>
+          </div>
+        </div>
+
+        <!-- CARD 6 — replace src with: assets/church/church-06.jpg -->
+        <div class="carousel-card carousel-card--dark">
+          <div class="carousel-img">
+            <img src="assets/church/church-06.jpg"
+                 alt="Church Event Design 06"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                 style="width:100%;height:100%;object-fit:cover;display:block;" />
+            <div class="carousel-placeholder carousel-placeholder--dark" style="display:none;">
+              <span class="carousel-ph-icon">📸</span>
+              <span class="carousel-ph-file">church-06.jpg</span>
+              <span class="carousel-ph-hint">Drop your image in assets/church/</span>
+            </div>
+            <span class="carousel-badge">Church Event</span>
+          </div>
+          <div class="carousel-info carousel-info--dark">
+            <div class="carousel-title carousel-title--dark">Church Event Design — 06</div>
+            <p class="carousel-desc carousel-desc--dark">Add title and description when uploading your image.</p>
+          </div>
+        </div>
+
+        <!-- CARD 7 — replace src with: assets/church/church-07.jpg -->
+        <div class="carousel-card carousel-card--dark">
+          <div class="carousel-img">
+            <img src="assets/church/church-07.jpg"
+                 alt="Church Event Design 07"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                 style="width:100%;height:100%;object-fit:cover;display:block;" />
+            <div class="carousel-placeholder carousel-placeholder--dark" style="display:none;">
+              <span class="carousel-ph-icon">📸</span>
+              <span class="carousel-ph-file">church-07.jpg</span>
+              <span class="carousel-ph-hint">Drop your image in assets/church/</span>
+            </div>
+            <span class="carousel-badge">Church Event</span>
+          </div>
+          <div class="carousel-info carousel-info--dark">
+            <div class="carousel-title carousel-title--dark">Church Event Design — 07</div>
+            <p class="carousel-desc carousel-desc--dark">Add title and description when uploading your image.</p>
+          </div>
+        </div>
+
+        <!-- CARD 8 — replace src with: assets/church/church-08.jpg -->
+        <div class="carousel-card carousel-card--dark">
+          <div class="carousel-img">
+            <img src="assets/church/church-08.jpg"
+                 alt="Church Event Design 08"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                 style="width:100%;height:100%;object-fit:cover;display:block;" />
+            <div class="carousel-placeholder carousel-placeholder--dark" style="display:none;">
+              <span class="carousel-ph-icon">📸</span>
+              <span class="carousel-ph-file">church-08.jpg</span>
+              <span class="carousel-ph-hint">Drop your image in assets/church/</span>
+            </div>
+            <span class="carousel-badge">Church Event</span>
+          </div>
+          <div class="carousel-info carousel-info--dark">
+            <div class="carousel-title carousel-title--dark">Church Event Design — 08</div>
+            <p class="carousel-desc carousel-desc--dark">Add title and description when uploading your image.</p>
+          </div>
+        </div>
+
+      </div><!-- end track -->
+    </div><!-- end wrap -->
+    <p class="carousel-hint-text carousel-hint-text--dark">Drag to scroll · Use arrows · Images load from <code style="background:rgba(255,255,255,0.08);padding:0.1rem 0.4rem;border-radius:2px;">assets/church/</code></p>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="work-cta">
+  <div class="work-cta-inner">
+    <span class="label label--accent reveal" style="display:block;margin-bottom:1rem;">Start Here</span>
+    <h2 class="reveal" style="font-family:var(--serif);font-size:clamp(2rem,4vw,3.2rem);letter-spacing:-0.02em;line-height:1.1;margin-bottom:1.2rem;">Your brand could be<br><em style="font-style:italic;color:var(--accent);">the next project here.</em></h2>
+    <p class="reveal" style="color:var(--ink);opacity:0.62;font-weight:300;line-height:1.75;margin-bottom:2.5rem;">Every project starts with a conversation. Tell me what you're building, what's not working, and what you want to achieve. We'll take it from there.</p>
+    <a href="contact.html" class="btn btn--dark reveal">Start a Conversation <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <img src="assets/logo.png" alt="thewoleisaiah" class="footer-logo"/>
+        <p class="footer-tagline">Faith | Design | Media | Tech &mdash; Brand Identity &amp; Website Designer helping purpose-driven brands stand out and convert.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Navigate</div>
+        <ul class="footer-links">
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="work.html">Work</a></li>
+          <li><a href="framework.html">Framework</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Services</div>
+        <ul class="footer-links">
+          <li><a href="services.html">Brand Identity</a></li>
+          <li><a href="services.html">Website Design</a></li>
+          <li><a href="services.html">Design Education</a></li>
+          <li><a href="services.html">Ministry Branding</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Get In Touch</div>
+        <ul class="footer-links">
+          <li><a href="mailto:thewoleisaiah@gmail.com">thewoleisaiah@gmail.com</a></li>
+          <li><a href="tel:+2348135679023">+234 813 567 9023</a></li>
+          <li><a href="https://wa.me/2348135679023" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="https://www.instagram.com/thewoleisaiah" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://www.linkedin.com/in/thewoleisaiah" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://www.facebook.com/thewoleisaiah" target="_blank" rel="noopener">Facebook</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2025 thewoleisaiah. Built with intention.</p>
+      <p class="footer-faith">Guided by Faith, Design, Media and Tech.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ── Carousel: arrow navigation ─────────────────────── */
+function scrollCarousel(trackId, dir) {
+  const track = document.getElementById(trackId);
+  if (!track) return;
+  const card = track.querySelector('.carousel-card');
+  const cardW = card ? card.offsetWidth + 24 : 320; // 24 = gap
+  track.scrollBy({ left: dir * cardW, behavior: 'smooth' });
+  setTimeout(() => updateCount(trackId), 350);
+}
+
+/* ── Update counter ─────────────────────────────────── */
+function updateCount(trackId) {
+  const track = document.getElementById(trackId);
+  if (!track) return;
+  const card = track.querySelector('.carousel-card');
+  if (!card) return;
+  const cardW = card.offsetWidth + 24;
+  const total = track.querySelectorAll('.carousel-card').length;
+  const current = Math.round(track.scrollLeft / cardW) + 1;
+  const countEl = document.getElementById(trackId === 'sm-track' ? 'smCount' : 'ceCount');
+  if (countEl) countEl.textContent = Math.min(current, total) + ' / ' + total;
+}
+
+/* ── Drag to scroll ─────────────────────────────────── */
+document.querySelectorAll('.carousel-track').forEach(track => {
+  let isDown = false, startX = 0, scrollLeft = 0;
+
+  track.addEventListener('mousedown', e => {
+    isDown = true;
+    track.classList.add('dragging');
+    startX = e.pageX - track.offsetLeft;
+    scrollLeft = track.scrollLeft;
+  });
+  track.addEventListener('mouseleave', () => { isDown = false; track.classList.remove('dragging'); });
+  track.addEventListener('mouseup',    () => { isDown = false; track.classList.remove('dragging'); updateCount(track.id); });
+  track.addEventListener('mousemove',  e => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - track.offsetLeft;
+    track.scrollLeft = scrollLeft - (x - startX) * 1.4;
+  });
+
+  /* Touch scroll count update */
+  track.addEventListener('touchend', () => setTimeout(() => updateCount(track.id), 300));
+  track.addEventListener('scroll',   () => updateCount(track.id));
+});
+</script>
+<script src="js/main.js"></script>
+</body>
+</html>

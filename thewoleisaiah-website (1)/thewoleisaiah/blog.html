@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Blog — thewoleisaiah | Design &amp; Brand Thinking</title>
+<meta name="description" content="Thoughts on brand strategy, design education, faith and purpose, and building meaningful creative careers. Written by Aluko Oluwole Isaiah."/>
+<link rel="stylesheet" href="css/styles.css"/>
+<style>
+/* ── BLOG PAGE ─────────────────────────────────────── */
+.blog-hero {
+  padding: 9rem var(--gap) 5rem;
+  max-width: var(--max);
+  margin: 0 auto;
+}
+.blog-hero-headline {
+  font-family: var(--serif);
+  font-size: var(--fs-display);
+  line-height: 0.97;
+  letter-spacing: -0.03em;
+  max-width: 14ch;
+}
+.blog-hero-headline em { font-style: italic; color: var(--accent); }
+.blog-hero-sub { font-size: 1.05rem; color: var(--ink); opacity: 0.62; font-weight: 300; max-width: 48ch; margin-top: 2rem; line-height: 1.75; }
+
+/* Featured post */
+.blog-featured {
+  padding: 0 var(--gap) var(--section);
+  max-width: var(--max);
+  margin: 0 auto;
+}
+.featured-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: box-shadow 0.2s;
+}
+.featured-card:hover { box-shadow: 0 20px 60px rgba(14,13,11,0.08); }
+.featured-img {
+  background: var(--ink);
+  aspect-ratio: auto;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.featured-img-inner {
+  font-family: var(--serif);
+  font-size: 8rem;
+  color: rgba(245,242,236,0.06);
+  font-style: italic;
+  position: absolute;
+}
+.featured-img-badge {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  font-family: var(--syne);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: var(--accent);
+  color: var(--paper);
+  padding: 0.3rem 0.8rem;
+  border-radius: 1px;
+}
+.featured-content { padding: clamp(2rem,4vw,3.5rem); display: flex; flex-direction: column; justify-content: center; }
+.featured-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+.blog-category { font-family: var(--syne); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); }
+.blog-date { font-family: var(--syne); font-size: 0.65rem; font-weight: 600; letter-spacing: 0.1em; color: var(--muted); }
+.featured-title { font-family: var(--serif); font-size: clamp(1.5rem,2.8vw,2.4rem); letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 1.2rem; }
+.featured-excerpt { font-size: 0.95rem; color: var(--ink); opacity: 0.65; line-height: 1.75; font-weight: 300; margin-bottom: 2rem; }
+.read-time { font-family: var(--syne); font-size: 0.65rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); opacity: 0.45; }
+
+/* Topics filter */
+.blog-topics {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 1.2rem var(--gap);
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.blog-topics::-webkit-scrollbar { display: none; }
+.topic-label { font-family: var(--syne); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-right: 1rem; white-space: nowrap; }
+.topic-btn {
+  font-family: var(--syne);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.45rem 1.1rem;
+  border-radius: 1px;
+  border: 1.5px solid var(--line);
+  background: transparent;
+  color: var(--ink);
+  opacity: 0.65;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.topic-btn:hover, .topic-btn.active { background: var(--ink); color: #ffffff; border-color: var(--ink); opacity: 1; }
+
+/* Posts grid */
+.blog-grid-section { padding: var(--section) var(--gap); max-width: var(--max); margin: 0 auto; }
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+}
+.blog-card {
+  display: flex;
+  flex-direction: column;
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+}
+.blog-card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(14,13,11,0.08); }
+.blog-card-img {
+  aspect-ratio: 16/9;
+  background: var(--ink);
+  display: flex; align-items: center; justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.blog-card-img-glyph { font-family: var(--serif); font-size: 3.5rem; color: rgba(245,242,236,0.07); font-style: italic; }
+.blog-card-content { padding: 1.5rem 1.5rem 2rem; flex: 1; display: flex; flex-direction: column; }
+.blog-card-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.9rem; }
+.blog-card-title { font-family: var(--serif); font-size: 1.15rem; letter-spacing: -0.01em; line-height: 1.25; margin-bottom: 0.75rem; flex: 1; }
+.blog-card-excerpt { font-size: 0.85rem; color: var(--ink); opacity: 0.62; line-height: 1.65; font-weight: 300; margin-bottom: 1.2rem; }
+.blog-card-footer { display: flex; align-items: center; justify-content: space-between; margin-top: auto; }
+.read-more { font-family: var(--syne); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); display: flex; align-items: center; gap: 0.4rem; }
+.read-more:hover { opacity: 0.7; }
+
+/* Newsletter */
+.newsletter-section {
+  background: var(--ink);
+  color: var(--paper);
+  padding: var(--section) var(--gap);
+  text-align: center;
+}
+.newsletter-inner { max-width: 580px; margin: 0 auto; }
+.newsletter-headline { font-family: var(--serif); font-size: clamp(2rem,3.5vw,3rem); letter-spacing: -0.02em; margin-bottom: 1rem; line-height: 1.1; }
+.newsletter-headline em { font-style: italic; color: var(--accent-lt); }
+.newsletter-sub { color: rgba(245,242,236,0.5); font-weight: 300; margin-bottom: 2.5rem; font-size: 0.98rem; line-height: 1.7; }
+.newsletter-form { display: flex; gap: 0; max-width: 440px; margin: 0 auto; }
+.newsletter-input {
+  flex: 1;
+  padding: 0.9rem 1.2rem;
+  background: rgba(245,242,236,0.07);
+  border: 1px solid rgba(245,242,236,0.18);
+  border-right: none;
+  border-radius: 2px 0 0 2px;
+  color: var(--paper);
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.newsletter-input::placeholder { color: rgba(245,242,236,0.3); }
+.newsletter-input:focus { border-color: var(--accent); }
+.newsletter-submit {
+  font-family: var(--syne);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: var(--accent);
+  color: var(--paper);
+  border: none;
+  padding: 0.9rem 1.5rem;
+  border-radius: 0 2px 2px 0;
+  cursor: pointer;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+.newsletter-submit:hover { background: var(--accent-lt); }
+.newsletter-note { font-size: 0.75rem; color: rgba(245,242,236,0.25); margin-top: 1rem; }
+
+@media (max-width: 960px) {
+  .featured-card { grid-template-columns: 1fr; }
+  .featured-img { min-height: 260px; }
+  .blog-grid { grid-template-columns: 1fr 1fr; }
+  .newsletter-form { flex-direction: column; }
+  .newsletter-input { border-right: 1px solid rgba(245,242,236,0.18); border-bottom: none; border-radius: 2px 2px 0 0; }
+  .newsletter-submit { border-radius: 0 0 2px 2px; }
+}
+@media (max-width: 600px) {
+  .blog-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="index.html" class="nav-logo"><img src="assets/logo.png" alt="thewoleisaiah"/></a>
+  <ul class="nav-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="work.html">Work</a></li>
+    <li><a href="framework.html">Framework</a></li>
+    <li><a href="blog.html">Blog</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="contact.html" class="nav-cta">Work With Me</a>
+    <div class="nav-hamburger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+<div class="mobile-nav">
+  <span class="mobile-nav-close">Close ✕</span>
+  <a href="about.html">About</a><a href="services.html">Services</a><a href="work.html">Work</a><a href="framework.html">Framework</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a>
+</div>
+
+<!-- HERO -->
+<div class="blog-hero">
+  <span class="label reveal" style="margin-bottom:1.5rem;display:block;">Thoughts &amp; Insights</span>
+  <h1 class="blog-hero-headline reveal reveal-delay-1">Ideas worth <em>sitting with.</em></h1>
+  <p class="blog-hero-sub reveal reveal-delay-2">Writing on brand strategy, design education, faith and purpose, and what it means to build something that lasts. No filler. No hype. Just honest thinking.</p>
+</div>
+
+<!-- FEATURED -->
+<div class="blog-featured">
+  <div class="featured-card reveal">
+    <div class="featured-img">
+      <div class="featured-img-inner">Clarity</div>
+      <span class="featured-img-badge">Featured</span>
+    </div>
+    <div class="featured-content">
+      <div class="featured-meta">
+        <span class="blog-category">Brand Strategy</span>
+        <span class="blog-date">January 2025</span>
+      </div>
+      <h2 class="featured-title">Why Your Brand Feels Inconsistent (And What to Actually Do About It)</h2>
+      <p class="featured-excerpt">Inconsistency isn't a design problem — it's a clarity problem. Most brands feel scattered not because the logo is bad, but because the thinking that should sit beneath the logo was never done. Here's how to fix that from the ground up.</p>
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+        <span class="read-time">8 min read</span>
+        <span style="font-family:var(--syne);font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.7rem 1.5rem;border:1.5px solid var(--line);border-radius:1px;color:var(--muted);">Coming Soon</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TOPICS -->
+<div class="blog-topics">
+  <span class="topic-label">Topics:</span>
+  <button class="topic-btn active">All</button>
+  <button class="topic-btn">Brand Strategy</button>
+  <button class="topic-btn">Design Education</button>
+  <button class="topic-btn">Faith &amp; Purpose</button>
+  <button class="topic-btn">Website Design</button>
+  <button class="topic-btn">Business</button>
+  <button class="topic-btn">Personal Growth</button>
+</div>
+
+<div class="marquee-wrap" aria-hidden="true">
+  <div class="marquee-track">
+    <span class="marquee-item">Brand Strategy</span><span class="marquee-item">Design Education</span><span class="marquee-item">Faith &amp; Purpose</span><span class="marquee-item">Website Design</span><span class="marquee-item">Business Growth</span><span class="marquee-item">Personal Clarity</span>
+    <span class="marquee-item">Brand Strategy</span><span class="marquee-item">Design Education</span><span class="marquee-item">Faith &amp; Purpose</span><span class="marquee-item">Website Design</span><span class="marquee-item">Business Growth</span><span class="marquee-item">Personal Clarity</span>
+  </div>
+</div>
+
+<!-- POSTS GRID -->
+<section class="blog-grid-section">
+  <div class="section-header">
+    <span class="label section-header__label reveal">All Posts</span>
+    <h2 class="section-header__headline reveal">Recent <em>writing.</em></h2>
+    <div class="reveal" style="margin-top:1.2rem;display:inline-flex;align-items:center;gap:0.6rem;background:var(--warm);border:1px solid var(--line);padding:0.6rem 1.1rem;border-radius:1px;">
+      <span style="width:7px;height:7px;border-radius:50%;background:var(--accent);display:inline-block;animation:pulse 2s infinite;"></span>
+      <span style="font-family:var(--syne);font-size:0.65rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);">Articles publishing soon — subscribe below to be notified</span>
+    </div>
+  </div>
+  <div class="blog-grid">
+
+    <div class="blog-card reveal">
+      <div class="blog-card-img" style="background:linear-gradient(135deg,#1a1612,#2d2218);">
+        <span class="blog-card-img-glyph">Logo</span>
+      </div>
+      <div class="blog-card-content">
+        <div class="blog-card-meta"><span class="blog-category">Brand Strategy</span><span class="blog-date" style="font-family:var(--syne);font-size:0.62rem;color:var(--muted);">Dec 2024</span></div>
+        <h3 class="blog-card-title">The Logo Is Not Your Brand — Here's What Is</h3>
+        <p class="blog-card-excerpt">Every week someone asks me to "just fix the logo." But the logo is almost never the problem. Let me show you what brand identity actually means.</p>
+        <div class="blog-card-footer">
+          <span class="read-more" style="opacity:0.4;cursor:default;">Coming Soon</span>
+          <span class="read-time" style="font-family:var(--syne);font-size:0.62rem;color:var(--muted);font-weight:600;letter-spacing:0.08em;text-transform:uppercase;">5 min</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="blog-card reveal reveal-delay-1">
+      <div class="blog-card-img" style="background:linear-gradient(135deg,#0d1117,#1a2332);">
+        <span class="blog-card-img-glyph">Faith</span>
+      </div>
+      <div class="blog-card-content">
+        <div class="blog-card-meta"><span class="blog-category">Faith &amp; Purpose</span><span class="blog-date" style="font-family:var(--syne);font-size:0.62rem;color:var(--muted);">Dec 2024</span></div>
+        <h3 class="blog-card-title">What "Faith, Design, Media and Tech" Actually Means to Me</h3>
+        <p class="blog-card-excerpt">It's not a tagline. It's a framework for how I make decisions — in client work, in teaching, and in life. Here's what it means in practice.</p>
+        <div class="blog-card-footer">
+          <span class="read-more" style="opacity:0.4;cursor:default;">Coming Soon</span>
+          <span class="read-time" style="font-family:var(--syne);font-size:0.62rem;color:var(--muted);font-weight:600;letter-spacing:0.08em;text-transform:uppercase;">6 min</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="blog-card reveal reveal-delay-2">
+      <div class="blog-card-img" style="background:linear-gradient(135deg,#0f1a10,#1a2d1b);">
+        <span class="blog-card-img-glyph">Web</span>
+      </div>
+      <div class="blog-card-content">
+        <div class="blog-card-meta"><span class="blog-category">Website Design</span><span class="blog-date" style="font-family:var(--syne);font-size:0.62rem;color:var(--muted);">Nov 2024</span></div>
+        <h3 class="blog-card-title">5 Reasons Your Website Is Losing You Clients (And How to Fix Each One)</h3>
+        <p class="blog-card-excerpt">A website that looks good but doesn't convert is just an expensive gallery. Here are the five most common conversion killers I find in client websites.</p>
+        <div class="blog-card-footer">
+          <span class="read-more" style="opacity:0.4;cursor:default;">Coming Soon</span>
+          <span class="read-time" style="font-family:var(--syne);font-size:0.62rem;color:var(--muted);font-weight:600;letter-spacing:0.08em;text-transform:uppercase;">7 min</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="blog-card reveal">
+      <div class="blog-card-img" style="background:linear-gradient(135deg,#1a0d0d,#2d1515);">
+        <span class="blog-card-img-glyph">Learn</span>
+      </div>
+      <div class="blog-card-content">
+        <div class="blog-card-meta"><span class="blog-category">Design Education</span><span class="blog-date" style="font-family:var(--syne);font-size:0.62rem;color:var(--muted);">Nov 2024</span></div>
+        <h3 class="blog-card-title">The Difference Between a Graphic Designer and a Brand Designer</h3>
+        <p class="blog-card-excerpt">One executes. The other thinks. One makes things look good. The other makes things work. Here's the distinction that will change how you approach your design career.</p>
+        <div class="blog-card-footer">
+          <span class="read-more" style="opacity:0.4;cursor:default;">Coming Soon</span>
+          <span class="read-time" style="font-family:var(--syne);font-size:0.62rem;color:var(--muted);font-weight:600;letter-spacing:0.08em;text-transform:uppercase;">5 min</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="blog-card reveal reveal-delay-1">
+      <div class="blog-card-img" style="background:linear-gradient(135deg,#16100d,#2a1e18);">
+        <span class="blog-card-img-glyph">Ministry</span>
+      </div>
+      <div class="blog-card-content">
+        <div class="blog-card-meta"><span class="blog-category">Faith &amp; Purpose</span><span class="blog-date" style="font-family:var(--syne);font-size:0.62rem;color:var(--muted);">Oct 2024</span></div>
+        <h3 class="blog-card-title">Why Ministries Need Better Branding (Without Losing Their Anointing)</h3>
+        <p class="blog-card-excerpt">Excellence in presentation does not compromise the message — it amplifies it. Here's what I've learned from working with faith-based organizations on their visual identity.</p>
+        <div class="blog-card-footer">
+          <span class="read-more" style="opacity:0.4;cursor:default;">Coming Soon</span>
+          <span class="read-time" style="font-family:var(--syne);font-size:0.62rem;color:var(--muted);font-weight:600;letter-spacing:0.08em;text-transform:uppercase;">6 min</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="blog-card reveal reveal-delay-2">
+      <div class="blog-card-img" style="background:linear-gradient(135deg,#0d0d1a,#15152d);">
+        <span class="blog-card-img-glyph">Clarity</span>
+      </div>
+      <div class="blog-card-content">
+        <div class="blog-card-meta"><span class="blog-category">Business</span><span class="blog-date" style="font-family:var(--syne);font-size:0.62rem;color:var(--muted);">Oct 2024</span></div>
+        <h3 class="blog-card-title">How to Know When Your Brand Is Ready to Scale</h3>
+        <p class="blog-card-excerpt">Scaling a confusing brand doesn't grow your business — it grows your confusion. Here are the signals that tell you your brand foundation is solid enough to scale on.</p>
+        <div class="blog-card-footer">
+          <span class="read-more" style="opacity:0.4;cursor:default;">Coming Soon</span>
+          <span class="read-time" style="font-family:var(--syne);font-size:0.62rem;color:var(--muted);font-weight:600;letter-spacing:0.08em;text-transform:uppercase;">8 min</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="text-align:center;margin-top:3.5rem;" class="reveal">
+    <span class="btn btn--outline" style="opacity:0.4;cursor:default;">More Articles Coming Soon</span>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter-section">
+  <div class="newsletter-inner">
+    <span class="label label--light reveal" style="margin-bottom:1rem;display:block;">The Newsletter</span>
+    <h2 class="newsletter-headline reveal">Thinking, delivered<br><em>to your inbox.</em></h2>
+    <p class="newsletter-sub reveal">I send occasional notes on brand clarity, design strategy, and building with purpose. No spam. No noise. Just the thinking I'd share with a trusted peer.</p>
+    <form class="newsletter-form reveal contact-form">
+      <input type="email" class="newsletter-input" placeholder="your@email.com" required/>
+      <button type="submit" class="newsletter-submit">Subscribe</button>
+    </form>
+    <p class="newsletter-note reveal">No spam. Unsubscribe any time.</p>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <img src="assets/logo.png" alt="thewoleisaiah" class="footer-logo"/>
+        <p class="footer-tagline">Faith | Design | Media | Tech &mdash; Brand Identity &amp; Website Designer helping purpose-driven brands stand out and convert.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Navigate</div>
+        <ul class="footer-links">
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="work.html">Work</a></li>
+          <li><a href="framework.html">Framework</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Services</div>
+        <ul class="footer-links">
+          <li><a href="services.html">Brand Identity</a></li>
+          <li><a href="services.html">Website Design</a></li>
+          <li><a href="services.html">Design Education</a></li>
+          <li><a href="services.html">Ministry Branding</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Get In Touch</div>
+        <ul class="footer-links">
+          <li><a href="mailto:thewoleisaiah@gmail.com">thewoleisaiah@gmail.com</a></li>
+          <li><a href="tel:+2348135679023">+234 813 567 9023</a></li>
+          <li><a href="https://wa.me/2348135679023" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="https://www.instagram.com/thewoleisaiah" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://www.linkedin.com/in/thewoleisaiah" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://www.facebook.com/thewoleisaiah" target="_blank" rel="noopener">Facebook</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2025 thewoleisaiah. Built with intention.</p>
+      <p class="footer-faith">Guided by Faith, Design, Media and Tech.</p>
+    </div>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+</body>
+</html>

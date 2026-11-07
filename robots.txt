@@ -1,0 +1,8 @@
+# robots.txt for thewoleisaiah
+# Allow all crawlers full access to the site.
+User-agent: *
+Allow: /
+
+# Sitemap location.
+# NOTE: update the domain below if the production URL differs from https://thewoleisaiah.com
+Sitemap: https://thewoleisaiah.com/sitemap.xml

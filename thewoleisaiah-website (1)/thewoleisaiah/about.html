@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>About — thewoleisaiah | Aluko Oluwole Isaiah</title>
+<meta name="description" content="The story behind thewoleisaiah — how Faith, Design, Media and Tech shaped a brand identity designer committed to clarity, legacy, and purpose-driven impact."/>
+<link rel="stylesheet" href="css/styles.css"/>
+<style>
+/* ── ABOUT PAGE SPECIFIC ─────────────────────────── */
+.about-hero {
+  padding-top: 9rem;
+  padding-bottom: 0;
+  padding-left: var(--gap);
+  padding-right: var(--gap);
+  max-width: var(--max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 4rem;
+  align-items: end;
+}
+.about-hero-left { padding-bottom: 4rem; }
+.about-hero-eyebrow { margin-bottom: 1.5rem; }
+.about-hero-headline {
+  font-family: var(--serif);
+  font-size: var(--fs-display);
+  line-height: 0.97;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  margin-bottom: 2.5rem;
+}
+.about-hero-headline em { font-style: italic; color: var(--accent); }
+.about-hero-intro {
+  font-size: 1.15rem;
+  color: var(--muted);
+  line-height: 1.75;
+  font-weight: 300;
+  max-width: 44ch;
+  border-left: 2px solid var(--accent);
+  padding-left: 1.5rem;
+}
+.about-hero-right { padding-bottom: 0; }
+.portrait-block {
+  width: 100%;
+  aspect-ratio: 3/4;
+  border-radius: var(--radius);
+  overflow: hidden;
+  position: relative;
+}
+
+/* Origin story */
+.origin-section { padding: var(--section) var(--gap); max-width: var(--max); margin: 0 auto; }
+.origin-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: clamp(3rem,8vw,8rem);
+  margin-top: 4rem;
+}
+.origin-sticky { position: sticky; top: 8rem; }
+.origin-timeline { }
+.origin-entry {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 2rem;
+  padding-bottom: 3.5rem;
+  position: relative;
+}
+.origin-entry:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  left: 11px;
+  top: 22px;
+  bottom: 0;
+  width: 1px;
+  background: var(--line);
+}
+.origin-dot {
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  border: 1.5px solid var(--accent);
+  background: var(--paper);
+  flex-shrink: 0;
+  margin-top: 2px;
+  display: flex; align-items: center; justify-content: center;
+}
+.origin-dot-inner {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+.origin-content {}
+.origin-phase { font-family: var(--syne); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
+.origin-entry-title { font-family: var(--serif); font-size: 1.4rem; margin-bottom: 0.8rem; letter-spacing: -0.01em; color: var(--ink); }
+.origin-body { font-size: 0.95rem; color: var(--ink); opacity: 0.65; line-height: 1.78; font-weight: 300; }
+
+/* Why section */
+.why-section {
+  background: var(--ink);
+  color: var(--paper);
+  padding: var(--section) var(--gap);
+}
+.why-inner { max-width: var(--max); margin: 0 auto; }
+.why-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(3rem,6vw,7rem);
+  margin-top: 4rem;
+  align-items: start;
+}
+.why-drivers { }
+.why-driver {
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--dark-line);
+}
+.why-driver:first-child { padding-top: 0; }
+.why-driver-title { font-family: var(--syne); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-lt); margin-bottom: 0.6rem; }
+.why-driver-body { font-size: 0.95rem; color: rgba(255,255,255,0.82); line-height: 1.75; font-weight: 300; }
+.why-legacy { }
+.why-legacy-q { font-family: var(--serif); font-size: clamp(1.4rem,2.5vw,2rem); font-style: italic; line-height: 1.3; color: var(--paper); margin-bottom: 2rem; }
+.legacy-list { list-style: none; }
+.legacy-item { display: flex; gap: 1rem; padding: 1.2rem 0; border-bottom: 1px solid var(--dark-line); font-size: 0.95rem; color: rgba(255,255,255,0.8); line-height: 1.65; font-weight: 300; }
+.legacy-item-icon { color: var(--accent-lt); flex-shrink: 0; margin-top: 0.1rem; }
+
+/* Values section */
+.values-section { padding: var(--section) var(--gap); background: var(--warm); }
+.values-inner { max-width: var(--max); margin: 0 auto; }
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-top: 4rem;
+}
+.value-card {
+  padding: clamp(2rem,3.5vw,3rem);
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  transition: background 0.2s;
+}
+.value-card:hover { background: var(--paper); }
+.value-card:nth-child(3n) { border-right: none; }
+.value-card:nth-last-child(-n+3) { border-bottom: none; }
+.value-num { font-family: var(--serif); font-size: 3rem; color: var(--accent); opacity: 0.12; line-height: 1; margin-bottom: 0.5rem; font-style: italic; }
+.value-title { font-family: var(--syne); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink); margin-bottom: 0.6rem; }
+.value-body { font-size: 0.9rem; color: var(--ink); opacity: 0.62; line-height: 1.7; font-weight: 300; }
+
+/* Skills section */
+.skills-section { padding: var(--section) var(--gap); max-width: var(--max); margin: 0 auto; }
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  margin-top: 4rem;
+}
+.skills-group-title { font-family: var(--syne); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-bottom: 2rem; }
+.skills-list { list-style: none; }
+.skill-item {
+  display: flex; align-items: center; gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--ink);
+}
+.skill-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+
+/* Anti-brand & differentiator */
+.diff-section {
+  background: var(--ink);
+  color: var(--paper);
+  padding: var(--section) var(--gap);
+}
+.diff-inner { max-width: var(--max); margin: 0 auto; }
+.diff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(3rem,6vw,7rem); margin-top: 4rem; }
+.diff-card { }
+.diff-card-label { font-family: var(--syne); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(245,242,236,0.3); margin-bottom: 1rem; }
+.diff-card-title { font-family: var(--serif); font-size: clamp(1.5rem,2.5vw,2.2rem); font-style: italic; color: var(--paper); margin-bottom: 1.2rem; line-height: 1.15; }
+.diff-card-body { font-size: 0.95rem; color: rgba(255,255,255,0.82); line-height: 1.78; font-weight: 300; }
+
+/* Responsive */
+@media (max-width: 960px) {
+  .about-hero { grid-template-columns: 1fr; padding-top: 7rem; }
+  .about-hero-right { order: -1; }
+  .portrait-block { max-width: 300px; margin: 0 auto; aspect-ratio: 1/1; }
+  .origin-grid { grid-template-columns: 1fr; }
+  .origin-sticky { position: static; }
+  .why-grid { grid-template-columns: 1fr; }
+  .values-grid { grid-template-columns: 1fr 1fr; }
+  .value-card:nth-child(2n) { border-right: none; }
+  .value-card:nth-child(3n) { border-right: 1px solid var(--line); }
+  .skills-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .diff-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .values-grid { grid-template-columns: 1fr; }
+  .value-card { border-right: none; }
+}
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="index.html" class="nav-logo"><img src="assets/logo.png" alt="thewoleisaiah"/></a>
+  <ul class="nav-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="work.html">Work</a></li>
+    <li><a href="framework.html">Framework</a></li>
+    <li><a href="blog.html">Blog</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="contact.html" class="nav-cta">Work With Me</a>
+    <div class="nav-hamburger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+<div class="mobile-nav">
+  <span class="mobile-nav-close">Close ✕</span>
+  <a href="about.html">About</a><a href="services.html">Services</a><a href="work.html">Work</a><a href="framework.html">Framework</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a>
+</div>
+
+<!-- HERO -->
+<div class="about-hero">
+  <div class="about-hero-left">
+    <div class="about-hero-eyebrow"><span class="label reveal">About Me</span></div>
+    <h1 class="about-hero-headline reveal reveal-delay-1">The <em>story</em><br>behind<br>the work.</h1>
+    <p class="about-hero-intro reveal reveal-delay-2">I'm Aluko Oluwole Isaiah — a brand identity designer, website designer, and design educator working at the intersection of Faith, Design, Media and Tech.</p>
+  </div>
+  <div class="about-hero-right reveal reveal-delay-2">
+    <div class="portrait-block">
+      <img src="assets/wole.jpg" alt="Aluko Oluwole Isaiah" style="width:100%;height:100%;object-fit:cover;object-position:center top;" />
+    </div>
+  </div>
+</div>
+
+<div class="marquee-wrap" aria-hidden="true">
+  <div class="marquee-track">
+    <span class="marquee-item">Faith · Design · Media · Tech</span><span class="marquee-item">Clarity &amp; Impact</span><span class="marquee-item">Purpose-Driven</span><span class="marquee-item">Legacy Builder</span><span class="marquee-item">Faith-Guided</span><span class="marquee-item">Nigeria · Africa · World</span>
+    <span class="marquee-item">Faith · Design · Media · Tech</span><span class="marquee-item">Clarity &amp; Impact</span><span class="marquee-item">Purpose-Driven</span><span class="marquee-item">Legacy Builder</span><span class="marquee-item">Faith-Guided</span><span class="marquee-item">Nigeria · Africa · World</span>
+  </div>
+</div>
+
+<!-- ORIGIN STORY -->
+<section class="origin-section">
+  <div class="section-header">
+    <span class="label section-header__label reveal">The Origin</span>
+    <h2 class="section-header__headline reveal">How I got <em>here.</em></h2>
+    <p class="section-header__sub reveal">Every designer has a turning point. Mine taught me that clarity isn't a style — it's a discipline.</p>
+  </div>
+  <div class="origin-grid">
+    <div class="origin-sticky">
+      <p style="font-family:var(--serif);font-size:1.5rem;font-style:italic;line-height:1.35;letter-spacing:-0.01em;color:var(--ink);" class="reveal">"I've always known there is more to me than where I currently am. I want my work to make that visible — not just for me, but for others."</p>
+      <div style="margin-top:2rem;" class="reveal"><a href="contact.html" class="btn btn--dark">Work With Me <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+    </div>
+    <div class="origin-timeline">
+      <div class="origin-entry reveal">
+        <div class="origin-dot"><div class="origin-dot-inner"></div></div>
+        <div class="origin-content">
+          <div class="origin-phase">The Beginning</div>
+          <div class="origin-entry-title">A love for design that started early</div>
+          <p class="origin-body">Design found me before I fully understood it. I was drawn to how things looked — how a well-placed element could shift the entire feeling of a piece. That instinct was real, but instinct alone wasn't enough.</p>
+        </div>
+      </div>
+      <div class="origin-entry reveal">
+        <div class="origin-dot"><div class="origin-dot-inner"></div></div>
+        <div class="origin-content">
+          <div class="origin-phase">The Struggle</div>
+          <div class="origin-entry-title">Technically decent, strategically shallow</div>
+          <p class="origin-body">There was a period when I struggled with visual identity design. I wasn't consistently producing top-tier work. Whenever I finished a logo, I already knew there were gaps — I felt I had put in the effort, yet I sensed I hadn't reached a deeper level of mastery. This uncertainty affected my confidence and, at times, slowed my delivery on client projects.</p>
+        </div>
+      </div>
+      <div class="origin-entry reveal">
+        <div class="origin-dot"><div class="origin-dot-inner"></div></div>
+        <div class="origin-content">
+          <div class="origin-phase">The Turning Point</div>
+          <div class="origin-entry-title">From aesthetics to problem-solving</div>
+          <p class="origin-body">The shift happened through intentional conversations — first with my mentor, then through consultation sessions with a trusted friend. I realized I wasn't meant to create designs that were merely attractive, but ones that clearly solved client problems. I learned the importance of building systems and structures around my process, rather than relying on intuition alone.</p>
+        </div>
+      </div>
+      <div class="origin-entry reveal">
+        <div class="origin-dot"><div class="origin-dot-inner"></div></div>
+        <div class="origin-content">
+          <div class="origin-phase">The Cost</div>
+          <div class="origin-entry-title">Lost clients, hard lessons</div>
+          <p class="origin-body">Along the way, I lost clients and missed out on projects. Those moments were difficult — but they exposed the real cost of operating without clarity, structure, and strategic depth. The pain was the curriculum.</p>
+        </div>
+      </div>
+      <div class="origin-entry reveal">
+        <div class="origin-dot"><div class="origin-dot-inner"></div></div>
+        <div class="origin-content">
+          <div class="origin-phase">Today</div>
+          <div class="origin-entry-title">Qualified by experience, not just knowledge</div>
+          <p class="origin-body">My past struggles uniquely qualify me to guide both clients and students. I don't just teach design — I teach how to think, structure, and deliver as a professional. I understand confusion and inconsistency because I've lived them and intentionally worked through them. Today, I go beyond surface-level requests, uncover what clients truly need, and help them build brands built to last.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="why-section">
+  <div class="why-inner">
+    <div class="section-header">
+      <span class="label label--light section-header__label reveal">The Why</span>
+      <h2 class="section-header__headline section-header__headline--light reveal">What <em>drives</em> this work.</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-drivers">
+        <div class="why-driver reveal">
+          <div class="why-driver-title">Business Clarity</div>
+          <p class="why-driver-body">I'm driven by a desire to help people do well in business by giving them clarity through brand strategy and brand identity — not just designs. I've seen how the right direction can change outcomes.</p>
+        </div>
+        <div class="why-driver reveal">
+          <div class="why-driver-title">A Love for Web</div>
+          <p class="why-driver-body">I genuinely love websites. I enjoy building them, and even more, teaching others the skills so they can create, grow, and sustain their own digital platforms.</p>
+        </div>
+        <div class="why-driver reveal">
+          <div class="why-driver-title">Youth &amp; Direction</div>
+          <p class="why-driver-body">Beyond business, I care deeply about helping youths and teens gain clarity about life and destiny. Direction early in life can save years of confusion — and I want my work to contribute to that.</p>
+        </div>
+        <div class="why-driver reveal">
+          <div class="why-driver-title">Legacy &amp; Family</div>
+          <p class="why-driver-body">I want to provide a comfortable life for myself and my family, built on honest work and long-term value. And ultimately, I want to build a legacy — one that outlives me — starting in Nigeria, expanding across Africa, and reaching the world.</p>
+        </div>
+      </div>
+      <div class="why-legacy">
+        <p class="why-legacy-q reveal">"If I succeed wildly with this personal brand, the lives that change go far beyond mine."</p>
+        <ul class="legacy-list">
+          <li class="legacy-item reveal"><span class="legacy-item-icon">✦</span> Founders and small business owners gain clarity and structure, helping them build sustainable businesses that support their families and grow with confidence.</li>
+          <li class="legacy-item reveal"><span class="legacy-item-icon">✦</span> Churches and faith-based organizations communicate their message more clearly, reach more people, and operate with excellence and consistency.</li>
+          <li class="legacy-item reveal"><span class="legacy-item-icon">✦</span> Youths and teens gain early clarity about life, purpose, and direction — helping them avoid years of confusion and make better decisions about their future.</li>
+          <li class="legacy-item reveal"><span class="legacy-item-icon">✦</span> Aspiring designers and creatives learn practical skills in branding and web design, giving them confidence and tools to earn, create, and contribute meaningfully.</li>
+          <li class="legacy-item reveal"><span class="legacy-item-icon">✦</span> Communities benefit from stronger businesses, clearer communication, and systems that last — starting in Nigeria, expanding across Africa, reaching the world.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="values-section">
+  <div class="values-inner">
+    <div class="section-header">
+      <span class="label section-header__label reveal">Core Values</span>
+      <h2 class="section-header__headline reveal">The <em>compass</em> that guides everything.</h2>
+    </div>
+    <div class="values-grid">
+      <div class="value-card reveal"><div class="value-num">1</div><div class="value-title">Faith &amp; Purpose</div><p class="value-body">Every decision is anchored in intention. Faith, Design, Media and Tech are not separate — they are a unified guiding principle for how I approach every project and every student.</p></div>
+      <div class="value-card reveal reveal-delay-1"><div class="value-num">2</div><div class="value-title">Integrity</div><p class="value-body">No shortcuts. No compromises on quality or ethics. I will immediately walk away from any project connected to deception, exploitation, or practices designed to defraud people.</p></div>
+      <div class="value-card reveal reveal-delay-2"><div class="value-num">3</div><div class="value-title">Excellence</div><p class="value-body">Not perfectionism — excellence. The discipline to go deeper, think harder, and deliver work that holds up under scrutiny, even when good enough would have been acceptable.</p></div>
+      <div class="value-card reveal"><div class="value-num">4</div><div class="value-title">Clarity First</div><p class="value-body">Every brand, website, and lesson should make ideas simple and understandable. If a client leaves confused, I haven't done my job — no matter how beautiful the work looks.</p></div>
+      <div class="value-card reveal reveal-delay-1"><div class="value-num">5</div><div class="value-title">Practicality</div><p class="value-body">Solutions must be actionable and scalable. Beautiful strategy that nobody can execute isn't strategy — it's decoration. Every deliverable must be usable from day one.</p></div>
+      <div class="value-card reveal reveal-delay-2"><div class="value-num">6</div><div class="value-title">Empathy</div><p class="value-body">Understanding the audience deeply is not optional — it is the foundation of effective design. I listen before I create, and I translate what I hear into systems that actually serve people.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="skills-section">
+  <div class="section-header">
+    <span class="label section-header__label reveal">Expertise</span>
+    <h2 class="section-header__headline reveal">Hard skills, <em>strategic thinking.</em></h2>
+    <p class="section-header__sub reveal">Technical ability in service of a bigger goal. Every tool I've learned exists to solve a real problem for a real person.</p>
+  </div>
+  <div class="skills-grid">
+    <div>
+      <div class="skills-group-title reveal">Design &amp; Branding</div>
+      <ul class="skills-list">
+        <li class="skill-item reveal"><span class="skill-dot"></span>Brand Identity Design (Logo, Visual Systems, Brand Guidelines)</li>
+        <li class="skill-item reveal"><span class="skill-dot"></span>Brand Strategy &amp; Positioning</li>
+        <li class="skill-item reveal"><span class="skill-dot"></span>UI/UX Design for Websites &amp; Apps</li>
+        <li class="skill-item reveal"><span class="skill-dot"></span>Website Design (Figma, Adobe XD)</li>
+        <li class="skill-item reveal"><span class="skill-dot"></span>WordPress Design &amp; Management</li>
+        <li class="skill-item reveal"><span class="skill-dot"></span>Graphic Design (Photoshop, Illustrator)</li>
+        <li class="skill-item reveal"><span class="skill-dot"></span>Social Media Design &amp; Content Templates</li>
+        <li class="skill-item reveal"><span class="skill-dot"></span>Church Media Production (Video, Graphics, Presentations)</li>
+        <li class="skill-item reveal"><span class="skill-dot"></span>Copywriting for Brands &amp; Social Media</li>
+        <li class="skill-item reveal"><span class="skill-dot"></span>Content Strategy &amp; Calendar Planning</li>
+      </ul>
+    </div>
+    <div>
+      <div class="skills-group-title reveal">Strategic Soft Skills</div>
+      <ul class="skills-list">
+        <li class="skill-item reveal"><span class="skill-dot"></span>Strategic Thinking — connecting brand purpose, design, and audience</li>
+        <li class="skill-item reveal"><span class="skill-dot"></span>Creativity &amp; Problem Solving — unique solutions for complex challenges</li>
+        <li class="skill-item reveal"><span class="skill-dot"></span>Empathy &amp; Listening — translating client vision into actionable design</li>
+        <li class="skill-item reveal"><span class="skill-dot"></span>Patience &amp; Process Discipline — delivering without cutting corners</li>
+        <li class="skill-item reveal"><span class="skill-dot"></span>Communication &amp; Teaching — explaining complex concepts clearly</li>
+        <li class="skill-item reveal"><span class="skill-dot"></span>Adaptability — shifting between creative, technical, and strategic roles</li>
+        <li class="skill-item reveal"><span class="skill-dot"></span>Systems Thinking — building repeatable processes for consistent delivery</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- DIFFERENTIATOR -->
+<section class="diff-section">
+  <div class="diff-inner">
+    <div class="section-header">
+      <span class="label label--light section-header__label reveal">The X-Factor</span>
+      <h2 class="section-header__headline section-header__headline--light reveal">What makes this <em>different.</em></h2>
+    </div>
+    <div class="diff-grid">
+      <div class="diff-card reveal">
+        <div class="diff-card-label">The Gap I Fill</div>
+        <div class="diff-card-title">"Most designers stop at aesthetics. I start with strategy."</div>
+        <p class="diff-card-body">Most competitors focus only on trendy visuals. They skip strategy, leaving clients with beautiful designs that don't connect with their audience. They overcomplicate messaging with jargon instead of clarity. They fail to provide practical systems for consistent brand implementation.</p>
+      </div>
+      <div class="diff-card reveal reveal-delay-1">
+        <div class="diff-card-label">My Superpower</div>
+        <div class="diff-card-title">"I naturally translate abstract ideas into clear, cohesive brands."</div>
+        <p class="diff-card-body">Unlike most designers, I combine strategy, design, and execution — so clients not only look professional but actually grow and attract the right audience. My unique mix of faith, creativity, and tech savvy makes me memorable. I am not just "another designer." I am The Faith &amp; Design Strategist — someone who blends Faith, Design, Media and Tech to create meaningful brands.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="background:var(--accent);padding:clamp(5rem,10vw,9rem) var(--gap);text-align:center;position:relative;overflow:hidden;">
+  <div style="position:relative;z-index:1;max-width:620px;margin:0 auto;">
+    <p class="reveal" style="font-family:var(--syne);font-size:0.68rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.75);margin-bottom:1.4rem;">Start Here</p>
+    <h2 class="reveal" style="font-family:var(--serif);font-size:clamp(2.5rem,5vw,4rem);line-height:1.05;letter-spacing:-0.02em;color:var(--paper);margin-bottom:1.4rem;">Ready to work<br>with someone who <em style="font-style:italic;opacity:0.8;">gets it?</em></h2>
+    <p class="reveal" style="color:rgba(255,255,255,0.82);font-weight:300;margin-bottom:3rem;">Let's build something clear, credible, and built to last.</p>
+    <a href="contact.html" class="btn btn--outline-lt reveal">Start a Conversation <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <img src="assets/logo.png" alt="thewoleisaiah" class="footer-logo"/>
+        <p class="footer-tagline">Faith | Design | Media | Tech &mdash; Brand Identity &amp; Website Designer helping purpose-driven brands stand out and convert.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Navigate</div>
+        <ul class="footer-links">
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="work.html">Work</a></li>
+          <li><a href="framework.html">Framework</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Services</div>
+        <ul class="footer-links">
+          <li><a href="services.html">Brand Identity</a></li>
+          <li><a href="services.html">Website Design</a></li>
+          <li><a href="services.html">Design Education</a></li>
+          <li><a href="services.html">Ministry Branding</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Get In Touch</div>
+        <ul class="footer-links">
+          <li><a href="mailto:thewoleisaiah@gmail.com">thewoleisaiah@gmail.com</a></li>
+          <li><a href="tel:+2348135679023">+234 813 567 9023</a></li>
+          <li><a href="https://wa.me/2348135679023" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="https://www.instagram.com/thewoleisaiah" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://www.linkedin.com/in/thewoleisaiah" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://www.facebook.com/thewoleisaiah" target="_blank" rel="noopener">Facebook</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2025 thewoleisaiah. Built with intention.</p>
+      <p class="footer-faith">Guided by Faith, Design, Media and Tech.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

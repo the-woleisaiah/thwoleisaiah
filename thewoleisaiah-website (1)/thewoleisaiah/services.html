@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Services — thewoleisaiah | Brand Identity &amp; Website Design</title>
+<meta name="description" content="Brand identity, website design, design education, and ministry branding services. I combine strategy, design, and execution so purpose-driven brands actually grow."/>
+<link rel="stylesheet" href="css/styles.css"/>
+<style>
+/* ── SERVICES PAGE ─────────────────────────────────── */
+.services-hero {
+  padding: 9rem var(--gap) 0;
+  max-width: var(--max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 4rem;
+  align-items: end;
+  padding-bottom: 5rem;
+}
+.services-hero-headline {
+  font-family: var(--serif);
+  font-size: var(--fs-display);
+  line-height: 0.97;
+  letter-spacing: -0.03em;
+  margin-bottom: 2.5rem;
+}
+.services-hero-headline em { font-style: italic; color: var(--accent); }
+.services-hero-right { padding-bottom: 1rem; }
+.services-hero-text { font-size: 1.1rem; color: var(--ink); opacity: 0.65; line-height: 1.75; font-weight: 300; margin-bottom: 2rem; }
+.hero-pill-row { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+.hero-pill { font-family: var(--syne); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.4rem 0.9rem; border: 1.5px solid var(--line); border-radius: 50px; color: var(--ink); opacity: 0.6; }
+
+/* Service detail sections */
+.svc-detail {
+  padding: var(--section) var(--gap);
+  max-width: var(--max);
+  margin: 0 auto;
+}
+.svc-detail--alt { background: var(--warm); }
+.svc-detail--dark { background: var(--ink); color: var(--paper); }
+
+.svc-detail-inner {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: clamp(3rem,8vw,8rem);
+  align-items: start;
+}
+.svc-detail-inner.reverse { direction: rtl; }
+.svc-detail-inner.reverse > * { direction: ltr; }
+
+.svc-detail-left { position: sticky; top: 8rem; }
+.svc-detail-num { font-family: var(--serif); font-size: 5rem; color: var(--accent); opacity: 0.15; line-height: 1; font-style: italic; margin-bottom: -1rem; }
+.svc-detail-title { font-family: var(--serif); font-size: clamp(1.8rem,3vw,2.8rem); line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 1rem; }
+.svc-detail-title em { font-style: italic; color: var(--accent); }
+.svc-detail-title--lt { color: var(--paper); }
+.svc-detail-title--lt em { color: var(--accent-lt); }
+.svc-detail-tagline { font-size: 0.9rem; color: var(--ink); opacity: 0.6; font-style: italic; font-weight: 300; margin-bottom: 2rem; border-left: 2px solid var(--accent); padding-left: 1rem; line-height: 1.6; }
+.svc-detail-tagline--lt { color: rgba(245,242,236,0.5); }
+.svc-detail-cta { margin-top: 2.5rem; }
+
+.svc-detail-right { }
+.svc-detail-lead { font-size: 1.1rem; font-weight: 500; color: var(--ink); line-height: 1.7; margin-bottom: 1.5rem; }
+.svc-detail-lead--lt { color: var(--paper); font-weight: 300; }
+.svc-detail-body { font-size: 0.95rem; color: var(--ink); opacity: 0.65; line-height: 1.8; font-weight: 300; margin-bottom: 1.2rem; }
+.svc-detail-body--lt { color: rgba(255,255,255,0.82); }
+
+.deliverables-title { font-family: var(--syne); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink); opacity: 0.55; margin: 2rem 0 1rem; }
+.deliverables-title--lt { color: rgba(245,242,236,0.35); }
+.deliverables-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem; }
+.deliverable-tag {
+  font-family: var(--syne);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  padding: 0.55rem 0.9rem;
+  border: 1.5px solid var(--line);
+  border-radius: 1px;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--warm);
+}
+.deliverable-tag::before { content: '◈'; color: var(--accent); font-size: 0.55rem; }
+.deliverable-tag--lt { border-color: rgba(245,242,236,0.15); color: rgba(255,255,255,0.8); }
+
+/* For whom */
+.for-whom { margin-top: 2.5rem; }
+.for-whom-title { font-family: var(--syne); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink); opacity: 0.55; margin-bottom: 0.8rem; }
+.for-whom-title--lt { color: rgba(245,242,236,0.35); }
+.for-whom-item { display: flex; gap: 0.8rem; padding: 0.7rem 0; border-bottom: 1px solid var(--line); font-size: 0.9rem; color: var(--ink); opacity: 0.65; font-weight: 300; }
+.for-whom-item--lt { border-color: var(--dark-line); color: rgba(245,242,236,0.5); }
+.for-whom-item::before { content: '→'; color: var(--accent); flex-shrink: 0; }
+
+/* Pricing note */
+.pricing-note {
+  background: var(--warm);
+  padding: var(--section) var(--gap);
+  text-align: center;
+}
+.pricing-note-inner { max-width: 680px; margin: 0 auto; }
+.pricing-note-title { font-family: var(--serif); font-size: clamp(2rem,3.5vw,3rem); letter-spacing: -0.02em; margin-bottom: 1.2rem; line-height: 1.1; }
+.pricing-note-title em { font-style: italic; color: var(--accent); }
+.pricing-note-body { color: var(--ink); opacity: 0.62; font-weight: 300; line-height: 1.75; margin-bottom: 2.5rem; font-size: 1rem; }
+
+/* FAQ */
+.faq-section { padding: var(--section) var(--gap); background: var(--ink); color: var(--paper); }
+.faq-inner { max-width: 800px; margin: 0 auto; }
+.faq-item { border-bottom: 1px solid var(--dark-line); }
+.faq-question {
+  padding: 1.5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  cursor: pointer;
+  font-family: var(--syne);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--paper);
+  transition: color 0.2s;
+}
+.faq-question:hover { color: var(--accent-lt); }
+.faq-icon { font-size: 1.4rem; color: var(--accent); flex-shrink: 0; line-height: 1; transition: transform 0.3s; }
+.faq-item.open .faq-icon { transform: rotate(45deg); }
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  font-size: 0.92rem;
+  color: rgba(245,242,236,0.5);
+  line-height: 1.8;
+  font-weight: 300;
+}
+.faq-answer-inner { padding-bottom: 1.5rem; }
+
+@media (max-width: 960px) {
+  .services-hero { grid-template-columns: 1fr; padding-top: 7rem; }
+  .svc-detail-inner { grid-template-columns: 1fr; }
+  .svc-detail-inner.reverse { direction: ltr; }
+  .svc-detail-left { position: static; }
+  .deliverables-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="index.html" class="nav-logo"><img src="assets/logo.png" alt="thewoleisaiah"/></a>
+  <ul class="nav-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="work.html">Work</a></li>
+    <li><a href="framework.html">Framework</a></li>
+    <li><a href="blog.html">Blog</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="contact.html" class="nav-cta">Work With Me</a>
+    <div class="nav-hamburger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+<div class="mobile-nav">
+  <span class="mobile-nav-close">Close ✕</span>
+  <a href="about.html">About</a><a href="services.html">Services</a><a href="work.html">Work</a><a href="framework.html">Framework</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a>
+</div>
+
+<!-- HERO -->
+<div class="services-hero container" style="max-width:var(--max);padding-top:9rem;padding-bottom:5rem;">
+  <div>
+    <span class="label reveal" style="margin-bottom:1.5rem;display:block;">Services</span>
+    <h1 class="services-hero-headline reveal reveal-delay-1">Work that<br><em>works</em> for<br>your brand.</h1>
+  </div>
+  <div class="services-hero-right reveal reveal-delay-2">
+    <p class="services-hero-text">I don't just design how things look — I design how they work for the people you're trying to reach. Every service is rooted in strategy, guided by faith, and built for measurable impact.</p>
+    <div class="hero-pill-row">
+      <span class="hero-pill">Brand Identity</span>
+      <span class="hero-pill">Website Design</span>
+      <span class="hero-pill">Design Education</span>
+      <span class="hero-pill">Ministry Branding</span>
+      <span class="hero-pill">Content Systems</span>
+    </div>
+  </div>
+</div>
+
+<div class="marquee-wrap" aria-hidden="true">
+  <div class="marquee-track">
+    <span class="marquee-item">Strategy First</span><span class="marquee-item">Identity That Converts</span><span class="marquee-item">Websites That Work</span><span class="marquee-item">Education With Depth</span><span class="marquee-item">Faith-Guided Design</span><span class="marquee-item">Systems Built to Last</span>
+    <span class="marquee-item">Strategy First</span><span class="marquee-item">Identity That Converts</span><span class="marquee-item">Websites That Work</span><span class="marquee-item">Education With Depth</span><span class="marquee-item">Faith-Guided Design</span><span class="marquee-item">Systems Built to Last</span>
+  </div>
+</div>
+
+<!-- SERVICE 01: Brand Identity -->
+<div class="svc-detail">
+  <div class="svc-detail-inner">
+    <div class="svc-detail-left">
+      <div class="svc-detail-num reveal">01</div>
+      <h2 class="svc-detail-title reveal">Brand Identity &amp; <em>Strategy</em></h2>
+      <p class="svc-detail-tagline reveal">"Your brand isn't just a logo — it's clarity, purpose, and trust."</p>
+      <div class="svc-detail-cta reveal"><a href="contact.html" class="btn btn--dark">Inquire <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+    </div>
+    <div class="svc-detail-right">
+      <p class="svc-detail-lead reveal">Most businesses have a strong idea but a weak presentation. The gap between what you offer and what your audience perceives is almost always a brand problem.</p>
+      <p class="svc-detail-body reveal">I build brand identity systems that go beyond logo design. Starting with deep discovery — who you are, who you serve, what makes you different — I create visual and verbal systems that communicate your value clearly and consistently across every touchpoint.</p>
+      <p class="svc-detail-body reveal">The result isn't just a beautiful brand book. It's a tool your team can actually use, that builds recognition over time, and that earns trust from the first impression.</p>
+      <div class="deliverables-title reveal">What's Included</div>
+      <div class="deliverables-grid reveal">
+        <span class="deliverable-tag">Brand Discovery &amp; Strategy</span>
+        <span class="deliverable-tag">Logo Design (Primary + Variants)</span>
+        <span class="deliverable-tag">Color Palette System</span>
+        <span class="deliverable-tag">Typography Selection</span>
+        <span class="deliverable-tag">Iconography &amp; Patterns</span>
+        <span class="deliverable-tag">Brand Guidelines Document</span>
+        <span class="deliverable-tag">Social Media Kit</span>
+        <span class="deliverable-tag">Brand Positioning Statement</span>
+      </div>
+      <div class="for-whom reveal">
+        <div class="for-whom-title">Ideal For</div>
+        <div class="for-whom-item">Founders launching or rebranding a business</div>
+        <div class="for-whom-item">Ministries wanting a consistent, professional identity</div>
+        <div class="for-whom-item">Creators building a personal brand with longevity</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICE 02: Website Design -->
+<div class="svc-detail svc-detail--dark">
+  <div class="svc-detail-inner reverse" style="max-width:var(--max);margin:0 auto;">
+    <div class="svc-detail-left">
+      <div class="svc-detail-num reveal" style="color:var(--accent-lt);opacity:0.2;">02</div>
+      <h2 class="svc-detail-title svc-detail-title--lt reveal">Website Design &amp; <em>Development</em></h2>
+      <p class="svc-detail-tagline svc-detail-tagline--lt reveal">"Websites should work for you, not just look good."</p>
+      <div class="svc-detail-cta reveal"><a href="contact.html" class="btn btn--outline-lt">Inquire <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+    </div>
+    <div class="svc-detail-right">
+      <p class="svc-detail-lead svc-detail-lead--lt reveal">A beautiful website that doesn't convert is just an expensive gallery. I design websites that are built to earn trust, guide visitors, and drive the actions your business actually needs.</p>
+      <p class="svc-detail-body svc-detail-body--lt reveal">Every site I build starts with strategy — understanding your goals, your audience's behavior, and what success looks like for you. The design follows that thinking, not the other way around. The result is a website that feels like you, speaks to your audience, and performs under real-world conditions.</p>
+      <p class="svc-detail-body svc-detail-body--lt reveal">I work primarily in Figma for design and WordPress for development, with a focus on sites that are easy for you to manage and grow after delivery.</p>
+      <div class="deliverables-title deliverables-title--lt reveal">What's Included</div>
+      <div class="deliverables-grid reveal">
+        <span class="deliverable-tag deliverable-tag--lt">Website Strategy &amp; Wireframes</span>
+        <span class="deliverable-tag deliverable-tag--lt">UI/UX Design (Figma)</span>
+        <span class="deliverable-tag deliverable-tag--lt">Responsive Development</span>
+        <span class="deliverable-tag deliverable-tag--lt">WordPress Setup &amp; Build</span>
+        <span class="deliverable-tag deliverable-tag--lt">Copywriting Support</span>
+        <span class="deliverable-tag deliverable-tag--lt">SEO Foundations</span>
+        <span class="deliverable-tag deliverable-tag--lt">Speed &amp; Performance Optimization</span>
+        <span class="deliverable-tag deliverable-tag--lt">Post-Launch Training</span>
+      </div>
+      <div class="for-whom reveal">
+        <div class="for-whom-title for-whom-title--lt">Ideal For</div>
+        <div class="for-whom-item for-whom-item--lt">Businesses that need a credible, conversion-focused online presence</div>
+        <div class="for-whom-item for-whom-item--lt">Ministries and faith organizations scaling their online reach</div>
+        <div class="for-whom-item for-whom-item--lt">Personal brands ready to invest in a professional digital home</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICE 03: Design Education -->
+<div class="svc-detail svc-detail--alt" style="background:var(--warm);">
+  <div class="svc-detail-inner" style="max-width:var(--max);margin:0 auto;">
+    <div class="svc-detail-left">
+      <div class="svc-detail-num reveal">03</div>
+      <h2 class="svc-detail-title reveal">Design Education &amp; <em>Mentorship</em></h2>
+      <p class="svc-detail-tagline reveal">"Design is problem-solving. I teach you how to do it strategically."</p>
+      <div class="svc-detail-cta reveal"><a href="contact.html" class="btn btn--dark">Inquire <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+    </div>
+    <div class="svc-detail-right">
+      <p class="svc-detail-lead reveal">Design isn't just a creative skill — it's a discipline that can be taught, learned, and built into a sustainable career. I teach it that way: with process, structure, and strategic depth.</p>
+      <p class="svc-detail-body reveal">Whether you're a complete beginner trying to understand branding fundamentals, or an intermediate designer who wants to start charging more and working with better clients, I meet you where you are and take you further.</p>
+      <p class="svc-detail-body reveal">My mentorship is not a course you watch passively. It's an active, personalized process. We review your work, critique it honestly, rebuild your thinking, and help you become the kind of designer clients trust and refer.</p>
+      <div class="deliverables-title reveal">Formats Available</div>
+      <div class="deliverables-grid reveal">
+        <span class="deliverable-tag">1-on-1 Mentorship Sessions</span>
+        <span class="deliverable-tag">Brand Design Intensive</span>
+        <span class="deliverable-tag">Website Design Course</span>
+        <span class="deliverable-tag">Portfolio Review &amp; Critique</span>
+        <span class="deliverable-tag">Group Workshops</span>
+        <span class="deliverable-tag">Canva Mastery Training</span>
+      </div>
+      <div class="for-whom reveal">
+        <div class="for-whom-title">Ideal For</div>
+        <div class="for-whom-item">Beginner designers building foundational skills</div>
+        <div class="for-whom-item">Intermediate designers wanting to go from aesthetic to strategic</div>
+        <div class="for-whom-item">Professionals who want to add design literacy to their toolkit</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICE 04: Ministry Branding -->
+<div class="svc-detail">
+  <div class="svc-detail-inner reverse">
+    <div class="svc-detail-left">
+      <div class="svc-detail-num reveal">04</div>
+      <h2 class="svc-detail-title reveal">Ministry &amp; <em>Faith-Based</em> Branding</h2>
+      <p class="svc-detail-tagline reveal">"Faith, Design, Media and Tech guide every decision I make in helping brands succeed."</p>
+      <div class="svc-detail-cta reveal"><a href="contact.html" class="btn btn--dark">Inquire <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+    </div>
+    <div class="svc-detail-right">
+      <p class="svc-detail-lead reveal">Your ministry's message is too important to be communicated poorly. A strong visual identity and professional digital presence doesn't compromise the anointing — it amplifies it.</p>
+      <p class="svc-detail-body reveal">I work with churches, ministries, faith-based nonprofits, and Christian entrepreneurs to build brand systems that communicate the depth and credibility of their work. I understand the culture, the values, and the weight of what you carry — because I carry it too.</p>
+      <p class="svc-detail-body reveal">From logo and visual identity to full church media production packages, I help you present your ministry with the excellence it deserves.</p>
+      <div class="deliverables-title reveal">What's Included</div>
+      <div class="deliverables-grid reveal">
+        <span class="deliverable-tag">Church Visual Identity</span>
+        <span class="deliverable-tag">Ministry Website</span>
+        <span class="deliverable-tag">Sunday Bulletin Templates</span>
+        <span class="deliverable-tag">Sermon Graphics</span>
+        <span class="deliverable-tag">Social Media Templates</span>
+        <span class="deliverable-tag">Event Flyers &amp; Posters</span>
+        <span class="deliverable-tag">Presentation Templates</span>
+        <span class="deliverable-tag">Video Bumpers &amp; Motion</span>
+      </div>
+      <div class="for-whom reveal">
+        <div class="for-whom-title">Ideal For</div>
+        <div class="for-whom-item">Churches wanting a consistent, professional presence</div>
+        <div class="for-whom-item">Ministry organizations launching new initiatives</div>
+        <div class="for-whom-item">Christian entrepreneurs building with faith at the center</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICE 05: Content Systems -->
+<div class="svc-detail svc-detail--dark">
+  <div class="svc-detail-inner" style="max-width:var(--max);margin:0 auto;">
+    <div class="svc-detail-left">
+      <div class="svc-detail-num reveal" style="color:var(--accent-lt);opacity:0.2;">05</div>
+      <h2 class="svc-detail-title svc-detail-title--lt reveal">Social Media &amp; <em>Content Systems</em></h2>
+      <p class="svc-detail-tagline svc-detail-tagline--lt reveal">"Consistency isn't a feeling — it's a system."</p>
+      <div class="svc-detail-cta reveal"><a href="contact.html" class="btn btn--outline-lt">Inquire <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+    </div>
+    <div class="svc-detail-right">
+      <p class="svc-detail-lead svc-detail-lead--lt reveal">Posting without a system is exhausting and unpredictable. I help you build a sustainable content infrastructure — designed templates, a strategic calendar, and a clear visual language that makes showing up consistently feel effortless.</p>
+      <p class="svc-detail-body svc-detail-body--lt reveal">Every template I create is built on your brand's visual system — not generic Canva layouts you've seen everywhere. Your content will look like you, speak like you, and work for you even when you're running out of creative energy.</p>
+      <div class="deliverables-title deliverables-title--lt reveal">What's Included</div>
+      <div class="deliverables-grid reveal">
+        <span class="deliverable-tag deliverable-tag--lt">Custom Canva Template Library</span>
+        <span class="deliverable-tag deliverable-tag--lt">Content Strategy Document</span>
+        <span class="deliverable-tag deliverable-tag--lt">90-Day Content Calendar</span>
+        <span class="deliverable-tag deliverable-tag--lt">Caption Frameworks</span>
+        <span class="deliverable-tag deliverable-tag--lt">Instagram &amp; Facebook Kits</span>
+        <span class="deliverable-tag deliverable-tag--lt">Highlight Covers</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PRICING NOTE -->
+<div class="pricing-note">
+  <div class="pricing-note-inner">
+    <span class="label label--accent reveal" style="margin-bottom:1rem;display:block;">Investment</span>
+    <h2 class="pricing-note-title reveal">Every project is<br><em>priced with intention.</em></h2>
+    <p class="pricing-note-body reveal">I don't post pricing publicly because every project is different. What I charge reflects the depth of thinking, the time invested, and the outcomes we're building toward together — not a menu price. Reach out and let's talk about what you need. I'll give you a clear, honest proposal with no hidden costs.</p>
+    <a href="contact.html" class="btn btn--dark reveal">Get a Proposal <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  </div>
+</div>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="faq-inner">
+    <div class="section-header" style="margin-bottom:3rem;">
+      <span class="label label--light section-header__label reveal">FAQ</span>
+      <h2 class="section-header__headline section-header__headline--light reveal">Questions I <em>get asked.</em></h2>
+    </div>
+    <div class="faq-item reveal">
+      <div class="faq-question">How long does a brand identity project take? <span class="faq-icon">+</span></div>
+      <div class="faq-answer"><div class="faq-answer-inner">A full brand identity project typically takes 3–6 weeks, depending on the scope and how quickly we move through the discovery and revision process. I work methodically — not rushed — because good brand work takes time to think through properly.</div></div>
+    </div>
+    <div class="faq-item reveal">
+      <div class="faq-question">Do you work with clients outside Nigeria? <span class="faq-icon">+</span></div>
+      <div class="faq-answer"><div class="faq-answer-inner">Yes. I work with clients across Africa and globally. All project communication happens remotely via email, video calls, and shared design tools. Time zones are manageable — we'll figure out a schedule that works for both of us.</div></div>
+    </div>
+    <div class="faq-item reveal">
+      <div class="faq-question">What's your design process like? <span class="faq-icon">+</span></div>
+      <div class="faq-answer"><div class="faq-answer-inner">Every project starts with discovery — understanding your business, your audience, and your goals. From there, I move into strategy before touching any design tool. Once the thinking is right, the design follows. I share concepts at key milestones and we refine from there. The process is collaborative, not a black box.</div></div>
+    </div>
+    <div class="faq-item reveal">
+      <div class="faq-question">Do you offer payment plans? <span class="faq-icon">+</span></div>
+      <div class="faq-answer"><div class="faq-answer-inner">Yes. I understand that quality design is an investment, and I want to make it accessible for purpose-driven brands that are growing. I typically require a deposit to begin work, with the balance split across project milestones. We'll discuss the specifics in your proposal.</div></div>
+    </div>
+    <div class="faq-item reveal">
+      <div class="faq-question">What if I only need one part of the service? <span class="faq-icon">+</span></div>
+      <div class="faq-answer"><div class="faq-answer-inner">That's completely fine. You don't need to take on everything at once. Whether you just need a logo, just a website, or just content templates — we can scope a project around exactly what you need right now, with room to expand later.</div></div>
+    </div>
+    <div class="faq-item reveal">
+      <div class="faq-question">What makes your work different from other designers? <span class="faq-icon">+</span></div>
+      <div class="faq-answer"><div class="faq-answer-inner">I combine strategy with execution. Most designers focus on aesthetics; I start with the problem you're trying to solve. I also bring a faith-guided perspective that is uniquely valuable for ministries and purpose-driven brands. And I build systems — not one-time deliverables — so your brand can grow consistently over time.</div></div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <img src="assets/logo.png" alt="thewoleisaiah" class="footer-logo"/>
+        <p class="footer-tagline">Faith | Design | Media | Tech &mdash; Brand Identity &amp; Website Designer helping purpose-driven brands stand out and convert.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Navigate</div>
+        <ul class="footer-links">
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="work.html">Work</a></li>
+          <li><a href="framework.html">Framework</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Services</div>
+        <ul class="footer-links">
+          <li><a href="services.html">Brand Identity</a></li>
+          <li><a href="services.html">Website Design</a></li>
+          <li><a href="services.html">Design Education</a></li>
+          <li><a href="services.html">Ministry Branding</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Get In Touch</div>
+        <ul class="footer-links">
+          <li><a href="mailto:thewoleisaiah@gmail.com">thewoleisaiah@gmail.com</a></li>
+          <li><a href="tel:+2348135679023">+234 813 567 9023</a></li>
+          <li><a href="https://wa.me/2348135679023" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="https://www.instagram.com/thewoleisaiah" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://www.linkedin.com/in/thewoleisaiah" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://www.facebook.com/thewoleisaiah" target="_blank" rel="noopener">Facebook</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2025 thewoleisaiah. Built with intention.</p>
+      <p class="footer-faith">Guided by Faith, Design, Media and Tech.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Journal — thewoleisaiah | Notes on Design &amp; Brand Thinking</title>
+<meta name="description" content="Thinking out loud. Learning in public. Practical notes on brand strategy, digital design, faith, and the process of getting better."/>
+<link rel="icon" type="image/png" href="assets/logo.png"/>
+
+<!-- Open Graph / Meta -->
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Journal — thewoleisaiah | Notes on Design &amp; Brand Thinking"/>
+<meta property="og:description" content="Practical writing on brand strategy, digital products, and purposeful creative careers by Aluko Oluwole Isaiah."/>
+<meta property="og:url" content="https://thewoleisaiah.com/blog.html"/>
+<meta property="og:image" content="https://thewoleisaiah.com/assets/wole.jpg"/>
+<meta name="twitter:card" content="summary_large_image"/>
+
+<!-- Stylesheet & Icons -->
+<link rel="stylesheet" href="css/styles.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
+<!-- Pre-paint Theme Script -->
+<script>
+  (function(){
+    try {
+      var saved = localStorage.getItem('theme');
+      var prefDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (saved === 'dark' || (!saved && prefDark)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    } catch(e){}
+  })();
+</script>
+</head>
+<body>
+
+<!-- NAVIGATION HEADER -->
+<header class="site-nav">
+  <a href="index.html" class="wordmark" aria-label="thewoleisaiah home">
+    <span class="wordmark-mark">W<span>↗</span></span>
+    <span>thewoleisaiah<span class="period">.</span></span>
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="work.html">Work</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="framework.html">Framework</a></li>
+    <li><a href="blog.html" class="active">Journal</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+
+  <div class="nav-right">
+    <a href="contact.html" class="nav-cta">Let’s Connect <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+    <div class="nav-hamburger" aria-label="Toggle navigation menu" role="button" tabindex="0">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</header>
+
+<!-- MOBILE NAVIGATION DRAWER -->
+<div class="mobile-nav" aria-hidden="true">
+  <span class="mobile-nav-close">Close <i class="fa-solid fa-xmark"></i></span>
+  <a href="index.html">Home</a>
+  <a href="work.html">Work</a>
+  <a href="about.html">About</a>
+  <a href="services.html">Services</a>
+  <a href="framework.html">Framework</a>
+  <a href="blog.html">Journal</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<main id="top">
+
+  <!-- JOURNAL HERO -->
+  <section class="section wrap" style="padding-top:8.5rem;padding-bottom:3.5rem;">
+    <div class="hero-topline reveal">
+      <div class="availability">
+        <span class="availability-dot"></span>
+        <span>Insights &amp; Publications</span>
+      </div>
+      <span class="mono-tag">Brand Strategy · Digital Craft · Practice</span>
+    </div>
+
+    <div style="max-width:850px;">
+      <p class="eyebrow eyebrow--blue reveal">Journal / Notes from the Practice</p>
+      <h1 class="reveal reveal-delay-1" style="font-size:var(--fs-display);margin-bottom:1.5rem;">
+        Thinking out loud.<br/><em>Learning in public.</em>
+      </h1>
+      <p class="section-intro wide reveal reveal-delay-2" style="font-size:1.05rem;">
+        Practical notes on brand strategy, digital design, faith, creative direction, and the disciplined process of getting better. No filler. Just honest, actionable thinking.
+      </p>
+
+      <!-- Author Pill Lockup -->
+      <div style="display:inline-flex;align-items:center;gap:1rem;margin-top:0.5rem;padding:0.6rem 1.2rem;background:var(--warm);border:1px solid var(--line);border-radius:var(--radius-pill);" class="reveal reveal-delay-3">
+        <img src="assets/wole-editorial-bw.png" onerror="this.src='assets/wole.jpg'" alt="Aluko Oluwole Isaiah" style="width:38px;height:38px;border-radius:50%;object-fit:cover;object-position:center top;border:1.5px solid var(--blue);"/>
+        <div style="font-size:0.82rem;">
+          <strong style="color:var(--ink);font-family:var(--display);display:block;">Aluko Oluwole Isaiah</strong>
+          <span style="color:var(--muted);font-family:var(--mono);font-size:9.5px;letter-spacing:0.06em;">FOUNDER &amp; LEAD DESIGN STRATEGIST</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Filter Topics -->
+    <div class="filters reveal reveal-delay-3" style="margin-top:2.5rem;">
+      <button class="filter-btn active" data-filter="all">All Articles</button>
+      <button class="filter-btn" data-filter="brand">Brand Thinking</button>
+      <button class="filter-btn" data-filter="digital">Digital Design</button>
+      <button class="filter-btn" data-filter="practice">Creative Practice</button>
+      <button class="filter-btn" data-filter="faith">Faith &amp; Purpose</button>
+    </div>
+  </section>
+
+  <!-- JOURNAL CARDS GRID -->
+  <section class="section wrap" style="padding-top:0;">
+    <div class="service-grid" style="grid-template-columns:repeat(auto-fit, minmax(320px, 1fr));gap:1.8rem;" id="journal-container">
+
+      <!-- Article 01 -->
+      <article class="service-card reveal" data-category="brand">
+        <div class="service-top">
+          <span class="mono-tag" style="color:var(--blue);">01 / BRAND THINKING</span>
+          <span class="mono-tag">ESSAY</span>
+        </div>
+        <h3 style="font-size:1.35rem;line-height:1.25;margin:1.5rem 0 0.8rem;">
+          Before the logo, ask better questions.
+        </h3>
+        <p>
+          A useful identity begins with deeply understanding the people, the promise, and the context. The visual craft comes after the strategic thinking.
+        </p>
+        <span class="deliverables" style="color:var(--muted-lt);">ARTICLE OUTLINE · COMING SOON</span>
+      </article>
+
+      <!-- Article 02 -->
+      <article class="service-card reveal reveal-delay-1" data-category="digital">
+        <div class="service-top">
+          <span class="mono-tag" style="color:var(--blue);">02 / DIGITAL DESIGN</span>
+          <span class="mono-tag">UI/UX</span>
+        </div>
+        <h3 style="font-size:1.35rem;line-height:1.25;margin:1.5rem 0 0.8rem;">
+          Make the next step obvious.
+        </h3>
+        <p>
+          Good digital experiences reduce cognitive uncertainty. Every screen should intuitively help people understand where they are and what they can do next.
+        </p>
+        <span class="deliverables" style="color:var(--muted-lt);">ARTICLE OUTLINE · COMING SOON</span>
+      </article>
+
+      <!-- Article 03 -->
+      <article class="service-card reveal reveal-delay-2" data-category="practice">
+        <div class="service-top">
+          <span class="mono-tag" style="color:var(--blue);">03 / CREATIVE PRACTICE</span>
+          <span class="mono-tag">DISCIPLINE</span>
+        </div>
+        <h3 style="font-size:1.35rem;line-height:1.25;margin:1.5rem 0 0.8rem;">
+          Consistency is a design skill.
+        </h3>
+        <p>
+          Creative growth is rarely about a sudden stroke of genius. It is almost always about building a repeatable, disciplined practice and showing up daily.
+        </p>
+        <span class="deliverables" style="color:var(--muted-lt);">ARTICLE OUTLINE · COMING SOON</span>
+      </article>
+
+      <!-- Article 04 -->
+      <article class="service-card reveal" data-category="brand">
+        <div class="service-top">
+          <span class="mono-tag" style="color:var(--blue);">04 / BRAND STRATEGY</span>
+          <span class="mono-tag">DIAGNOSTIC</span>
+        </div>
+        <h3 style="font-size:1.35rem;line-height:1.25;margin:1.5rem 0 0.8rem;">
+          Why your brand feels inconsistent (and what to do about it).
+        </h3>
+        <p>
+          Inconsistency isn't a design problem — it's a clarity problem. Most brands feel scattered not because the logo is weak, but because the strategy was never settled.
+        </p>
+        <span class="deliverables" style="color:var(--muted-lt);">ARTICLE OUTLINE · COMING SOON</span>
+      </article>
+
+      <!-- Article 05 -->
+      <article class="service-card reveal reveal-delay-1" data-category="digital">
+        <div class="service-top">
+          <span class="mono-tag" style="color:var(--blue);">05 / WEB DESIGN</span>
+          <span class="mono-tag">CONVERSION</span>
+        </div>
+        <h3 style="font-size:1.35rem;line-height:1.25;margin:1.5rem 0 0.8rem;">
+          5 reasons your website is losing you clients.
+        </h3>
+        <p>
+          A website that looks pretty but fails to convert is just an expensive digital art gallery. Here are the five most common conversion killers in modern web design.
+        </p>
+        <span class="deliverables" style="color:var(--muted-lt);">ARTICLE OUTLINE · COMING SOON</span>
+      </article>
+
+      <!-- Article 06 -->
+      <article class="service-card reveal reveal-delay-2" data-category="faith">
+        <div class="service-top">
+          <span class="mono-tag" style="color:var(--blue);">06 / FAITH &amp; PURPOSE</span>
+          <span class="mono-tag">LEGACY</span>
+        </div>
+        <h3 style="font-size:1.35rem;line-height:1.25;margin:1.5rem 0 0.8rem;">
+          Building something that outlasts you.
+        </h3>
+        <p>
+          How purpose-driven founders and ministries can make design decisions that hold ethical weight, inspire generational trust, and endure for decades.
+        </p>
+        <span class="deliverables" style="color:var(--muted-lt);">ARTICLE OUTLINE · COMING SOON</span>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- AUTHOR NOTE -->
+  <section class="section wrap" style="padding-top:1rem;padding-bottom:3rem;">
+    <div class="service-note reveal" style="align-items:center;background:var(--warm);border:1px solid var(--line);">
+      <img src="assets/wole-editorial-bw.png" onerror="this.src='assets/wole.jpg'" alt="Aluko Oluwole Isaiah" style="width:76px;height:76px;border-radius:50%;object-fit:cover;object-position:center top;border:2px solid var(--blue);flex-shrink:0;filter:grayscale(100%);"/>
+      <div>
+        <p class="eyebrow eyebrow--blue" style="margin-bottom:0.4rem;">From the Desk of the Founder</p>
+        <h3 style="font-size:1.15rem;margin-bottom:0.35rem;">Aluko Oluwole Isaiah</h3>
+        <p style="font-size:0.88rem;color:var(--muted);line-height:1.6;margin:0;">
+          Writings on brand clarity, visual architecture, interface craft, and faith-driven design practice. Exploring ideas tested in client engagements across Nigeria and worldwide.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER SIGNUP -->
+  <section class="section section-dark">
+    <div class="wrap" style="max-width:680px;text-align:center;">
+      <p class="eyebrow eyebrow--gold reveal">Stay in the Loop</p>
+      <h2 class="reveal reveal-delay-1" style="color:#ffffff;margin-bottom:1.2rem;">
+        Get insights directly to<br/><em>your inbox.</em>
+      </h2>
+      <p class="reveal reveal-delay-2" style="color:var(--dark-sub);font-size:0.98rem;margin-bottom:2.5rem;">
+        Occasional essays on brand strategy, visual systems, and building with purpose. No spam, ever.
+      </p>
+
+      <form name="newsletter" method="POST" data-netlify="true" class="contact-form reveal reveal-delay-3" style="display:flex;gap:0.75rem;max-width:480px;margin:0 auto;flex-wrap:wrap;">
+        <input type="hidden" name="form-name" value="newsletter" />
+        <input type="email" name="email" placeholder="Your email address" required style="flex:1;min-width:240px;padding:0.9rem 1.2rem;border-radius:var(--radius-sm);border:1px solid rgba(255,255,255,0.25);background:rgba(255,255,255,0.08);color:#ffffff;font-family:var(--sans);font-size:0.92rem;"/>
+        <button type="submit" class="btn btn--blue" style="padding:0.9rem 1.5rem;">
+          Subscribe <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- CONTACT BAND -->
+  <section class="contact-section">
+    <div class="wrap contact-inner">
+      <p class="eyebrow eyebrow--gold reveal">Let’s Start a Conversation</p>
+      <h2 class="reveal reveal-delay-1">
+        Have an article idea or<br/>
+        <em>project inquiry?</em>
+      </h2>
+      <p class="reveal reveal-delay-2">
+        I’m always open to discussing design theory, strategic brand architecture, or upcoming client engagements.
+      </p>
+      <div class="hero-actions reveal reveal-delay-3">
+        <a class="button light" href="contact.html">
+          Contact Me <i class="fa-solid fa-arrow-right"></i>
+        </a>
+        <a class="button outline-light" href="https://www.linkedin.com/in/thewoleisaiah/" target="_blank" rel="noopener">
+          <i class="fa-brands fa-linkedin"></i> Connect on LinkedIn
+        </a>
+      </div>
+      <p class="contact-location reveal reveal-delay-4">
+        BASED IN NIGERIA · OPEN TO INTERNATIONAL OPPORTUNITIES
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<!-- SITE FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <a href="index.html" class="wordmark footer-wordmark">
+          <span class="wordmark-mark">W<span>↗</span></span>
+          <span>thewoleisaiah<span class="period" style="color:var(--gold);">.</span></span>
+        </a>
+        <p class="footer-tagline">
+          Multidisciplinary designer connecting brand thinking, digital design, and product experiences worldwide.
+        </p>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Navigation</div>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="work.html">Work</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="framework.html">Framework</a></li>
+          <li><a href="blog.html">Journal</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Offerings</div>
+        <ul class="footer-links">
+          <li><a href="services.html#brand-identity">Brand Identity</a></li>
+          <li><a href="services.html#web-design">Web Development</a></li>
+          <li><a href="services.html#ui-ux">UI/UX Design</a></li>
+          <li><a href="services.html#creative-direction">Creative Direction</a></li>
+          <li><a href="services.html#ministry-branding">Ministry Branding</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Connect</div>
+        <ul class="footer-links">
+          <li><a href="mailto:thewoleisaiah@gmail.com">thewoleisaiah@gmail.com</a></li>
+          <li><a href="https://www.linkedin.com/in/thewoleisaiah/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://www.behance.net/thewoleisaiah" target="_blank" rel="noopener">Behance</a></li>
+          <li><a href="https://wa.me/2348135679023" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="https://www.instagram.com/thewoleisaiah" target="_blank" rel="noopener">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 Aluko Oluwole Isaiah (thewoleisaiah). Built with intention.</p>
+      <p class="footer-faith">Guided by Faith, Design, Media and Tech.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+  // Dynamic client-side filtering for Journal
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      document.querySelectorAll('#journal-container article').forEach(card => {
+        if (filter === 'all' || card.dataset.category === filter) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+</script>
+</body>
+</html>
